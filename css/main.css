@@ -1,0 +1,439 @@
+/*
+
+Pink #ED225D
+Blue highlight/link #2D7BB6
+ */
+
+
+ @font-face{
+    font-family:'National Park';
+    src: url('/assets/fonts/NationalPark-Regular.otf') format('opentype'),
+    url('/assets/fonts/NationalPark-Regular.woff') format('woff'),
+    url('/assets/fonts/NationalPark-Regular.woff2') format('woff2'),
+    url('/assets/fonts/NationalPark-Regular.ttf') format('truetype');
+ }
+
+* {
+    -webkit-user-select: text;
+    -khtml-user-select: text;
+    -moz-user-select: text;
+    -o-user-select: text;
+    user-select: text;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  overflow: none;
+  color: white;
+  background: #333;
+}
+
+canvas {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+input[type="range"] {
+  width: 160px;
+}
+
+h1, h2 {
+  font-family: "National Park", Helvetica, sans-serif;
+  margin:  0 0 5px 0;
+}
+
+#main {
+  overflow:hidden;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -960px;
+  margin-top: -540px;
+  width: 1920px;
+  height: 1080px;
+  background: white;
+}
+
+#progressBar {
+  position: absolute;
+  height: 8px;
+  bottom: 0;
+  z-index: 1000;
+}
+
+#progress {
+  position:absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 8px;
+  background:#ED225D;
+}
+
+#gutter {
+  position:absolute;
+  top: 0;
+  left: 0;
+  height: 8px;
+  width: 1920px;
+  background:#ccc;
+}
+
+/**
+ * UI
+ */
+
+#p5 {
+  position:absolute;
+  left: 12px;
+  bottom: 20px;
+  display: none;
+  z-index: 1000;
+}
+
+#pause {
+  position:absolute;
+  display: none;
+  right: 12px;
+  bottom: 12px;
+  z-index: 1000;
+  font-size: 32px;
+  cursor: pointer;
+  vertical-align:bottom;
+  color: #ccc;
+}
+
+#pause:hover {
+  color: #ED225D;
+}
+
+.codePanel {
+  padding: 16px;
+  font-size: 1.5em;
+  color: #ED225D !important;
+  position: absolute;
+  font-family: 'Inconsolata', monospace;
+  white-space:nowrap;
+}
+
+
+.codePanel:hover {
+    text-decoration: none;
+    background: rgba(255, 184, 0, .50);
+    border: 2px solid rgb(255, 184, 0);    
+  }
+
+/**
+ * Sketch
+ */
+
+#sketchCanvas{
+  position: absolute;
+  width:100%;
+  z-index:100;
+}
+
+#sketchOverlay {
+  position: absolute;
+  width: 100%;
+  z-index:100;
+}
+
+#sketchCanvas.foreground, #sketchOverlay {
+  z-index: 600;
+}
+
+.windowFrame{
+  position:absolute;
+  top:100px;
+  left:100px;
+  border:#F1678E solid;
+  border-top-width:30px;
+  border-right-width: 2px;
+  border-bottom-width: 2px;
+  border-left-width: 2px;
+  border-radius:10px;
+  background:white;
+  filter: drop-shadow(4px 6px 1px #ddd);
+}
+
+/**
+ * Video
+ */
+
+/*this is a div*/
+#videoClip {
+  position: absolute;
+  display: none; 
+  width:100%;
+  height:auto;
+  /* width: 1920px;
+  height: 1080px; */
+
+  pointer-events: none;
+  z-index: -10;
+}
+
+/*this is a canvas*/
+#videoCanvas {
+  position: absolute;
+  /* bottom: 0; */
+  /* left: 75%; */
+  margin-left: 10%;
+  width: 1920px;
+  height: 1080px;
+  top:0;
+  left:0;
+  pointer-events: none;
+  display:none;
+  /* z-index: 200; */
+}
+
+/**
+ *  Preload
+ */
+
+#preloader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: white;
+  opacity: 0;
+}
+
+.fontLoadA{
+    font-family: "National Park", Helvetica, sans-serif;
+}
+
+.fontLoadB {
+  font-family: 'Inconsolata', monospace;
+}
+
+/**
+ * Welcome Panel
+ */
+
+#welcome {
+  position: absolute;
+  width: 128px;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  margin-left: -64px;
+  margin-top: -64px;
+  display: none;
+}
+
+/**
+ * Error Panel
+ */
+
+#error {
+  position:relative;
+  margin: 10% auto;
+  width: 100%;
+  max-width: 480px;
+  text-align: left;
+  display: none;
+}
+
+/**
+ * CTA Panel
+ */
+
+#cta {
+
+  width: 524px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -262px;
+  margin-top: -128px;
+  background: #fefefe;
+  display: none;
+}
+
+/**
+ * Panel Classes
+ */
+
+.panelHeader {
+  background: #ED225D;
+  color: white;
+  padding: 16px;
+}
+
+.panelBody {
+  padding: 16px;
+  border: 1px solid #ccc;
+  border-top: none;
+  color: #444;
+  background: white;
+}
+
+.panelBody .btn {
+  width: 160px;
+  margin-bottom: 4px;
+  text-transform: lowercase;
+  font-family: "National Park";
+}
+
+/** 
+ * Weather Demo
+ */
+
+#weather {
+  position: absolute;
+  display: none;
+
+  top: 24px;
+  width: 500px;
+  left: 50%;
+  margin-left: -250px;
+  
+  text-align: center;
+}
+
+#weatherSpan {
+  display: inline-block;
+  border-radius: 4px;
+  background: rgba(45,123,182,.80);
+  border: 2px solid rgb(45,123,182);
+  color: white;
+  padding: 6px 24px;
+  font-size: 60px;
+  line-height: 60px;
+  box-sizing: content-box;
+
+}
+
+#temperature {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#wind {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+
+#speed, #gust {
+  font-size: 20px;
+  line-height: 20px;
+  margin-left: 24px;
+  margin-right: 32px;
+}
+
+#speed {
+  margin-bottom: 8px;
+}
+
+#gauge { 
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/**
+ * Song Demo
+ */
+
+#noteContainer {
+  position: absolute;
+  top: 24px;
+  left: 0;
+  width: 100%;
+  text-align:center;
+}
+
+.note {
+  display: inline-block;
+
+  height: 60px;
+  width: 60px;
+  line-height: 60px;
+
+  font-family: "National Park", Helvetica, sans-serif;
+  font-size: 32px;
+  text-align: center;
+
+  background: #F1678E;
+  border: 2px solid F1678E;
+  color: white;
+
+  margin: 0 4px;
+  border-radius: 50%;
+  box-sizing: content-box;
+}
+
+.note:hover {
+  background: rgba(255, 184, 0, .50);
+  border: 2px solid rgb(255, 184, 0);    
+}
+
+/**
+ * Intro Demo
+ */
+
+#labelContainer {
+  width: 800px;
+  margin-left: -500px;
+  margin-top: -2.8em;
+  text-align: right;
+}
+
+#labelSpan {
+  font-family: "National Park", Helvetica, sans-serif;
+  font-size: 2.6em;
+  color: #F1678E;
+}
+
+#introLogo {
+  width: 200px;
+  height: auto;
+}
+
+#bullets{
+  font-family: "National Park", Helvetica, sans-serif;  
+  font-size: 2.4em;
+  line-height: 2.0em;
+  color: #F1678E;
+  text-align: left;
+}
+
+.exampleText {
+  font-family: 'Inconsolata', monospace;
+  font-size: 2.6em;
+  color: #f1678e9f; 
+}
+
+/**
+ * Outro Demo
+ */
+
+#outroContainer {
+  text-align: center;
+  color: #F1678E;
+}
+
+#outroContainer .fa-stack {
+  font-size: 7em;
+}
+
+#outroContainer img {
+  width:128px; 
+  height:128px;
+  margin-left:24px;
+}
+
+.outroText{
+  font-family: "National Park", Helvetica, sans-serif;
+  font-size: 2.4em;
+  color: #F1678E;  
+}
+
