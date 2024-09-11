@@ -2,7 +2,7 @@ var script = {
   popcorn: null,
   init: function () {
 
-    var pop = Popcorn.smart("#videoClip", ["assets/p5-video-draft-1.webm", "assets/p5-video-draft-1.mp4"], { width: 1920, height: 1080 });
+    var pop = Popcorn.smart("#videoClip", ["assets/p5-video-draft-2.webm", "assets/p5-video-draft-2.mp4"], { width: 1920, height: 1080 });
     pop.autoplay(false);
 
     pop.on("canplayall", function (e) {
@@ -25,9 +25,7 @@ var script = {
       $("#progress").css('width', width);
     });
 
-    /**
-     * Script
-     */
+    /* Script */
 
     // Q intro
 
@@ -37,14 +35,14 @@ var script = {
 
         var position = main.getRelativePosition({ left: -177.5, top: 463 });
         main.sketch = new p5(introSketch, "sketchCanvas");
-        main.sketch.showLabel("Qianqian Ye, p5.js Project Lead", position.left, position.top);
+        // main.sketch.showLabel("Qianqian Ye, p5.js Project Lead", position.left, position.top);
       }
     });
 
     pop.code({
       start: 6,
       onStart: function (options) {
-        main.sketch.hideLabel();
+        // main.sketch.hideLabel();
         main.sketch.showLogo(288, 272);
       }
     });
@@ -128,15 +126,15 @@ var script = {
       start: 40,
       onStart: function (options) {
 
-        var position = main.getRelativePosition({ left: -177.5, top: 540 });
-        main.sketch.showLabel("Dan Shiffman", position.left, position.top);
+        // var position = main.getRelativePosition({ left: -177.5, top: 540 });
+        // main.sketch.showLabel("Daniel Shiffman", position.left, position.top);
       }
     });
 
     pop.code({
       start: 43,
       onStart: function (options) {
-        main.sketch.hideLabel();
+        // main.sketch.hideLabel();
       }
     });
 
@@ -232,7 +230,13 @@ var script = {
         main.sketch = new p5(flockingSketch, "sketchCanvas");
         main.sketch.scaleFactor = main.scaleFactor;
       }
-    })
+    });
+    pop.code({
+      start: 90,
+      onStart: function (options) {
+        main.sketch.hideLabel();
+      }
+    });
 
     pop.code({
       start: 95,
@@ -256,32 +260,30 @@ var script = {
     });
 
 
-    pop.code({
-      start: 109,
-      onStart: function (options) {
-        $("#sketchCanvas").fadeOut(1000);
-      }
-    });
+    // pop.code({
+    //   start: 109,
+    //   onStart: function (options) {
+    //     $("#sketchCanvas").fadeOut(1000);
+    //   }
+    // });
 
 
     pop.code({
-      start: 110,
+      start: 108,
       onStart: function (options) {
         main.sketch.stopFlocking();
-      }
-    });
-
-    pop.code({
-      start: 111.0,
-      onStart: function (options) {
-
         main.sketch.remove();
-
         $("#sketchCanvas").stop();
         $("#sketchCanvas").css({ opacity: 1 });
         $("#sketchCanvas").show();
       }
     });
+
+    // pop.code({
+    //   start: 111.0,
+    //   onStart: function (options) {
+    //   }
+    // });
 
     // Rox - play song
 
@@ -302,35 +304,66 @@ var script = {
     // Rox - Painting - draw sound
 
     pop.code({
-      start: 123.0,
+      start: 122.0,
       onStart: function (options) {
-        $("#sketchCanvas").addClass("foreground");
         main.sketch = new p5(paintingSketch, "sketchCanvas");
         main.sketch.scaleFactor = main.scaleFactor;
-        main.sketch.disableMouse();
       }
     });
 
     pop.code({
-      start: 123.1, //
+      start: 122.1, //
       onStart: function (options) {
         main.sketch.startDrawing();
 
         var position = main.getRelativePosition({ left: -239, top: 449 });
         main.sketch.addPoint(
-          { x: position.left, y: position.top },
-          { x: -3, y: -8 }
+          { x: 1, y: 149 },
+          { x: -1.5, y: -4 }
         );
       }
     });
 
     pop.code({
-      start: 123.3, //
+      start: 122.3, //
       onStart: function (options) {
         var position = main.getRelativePosition({ left: -56, top: 585 });
         main.sketch.addPoint(
-          { x: position.left, y: position.top },
-          { x: -1, y: -8 }
+          { x: 84, y: 185 },
+          { x: -2, y: -4 }
+        );
+      }
+    });
+
+    pop.code({
+      start: 122.5, //
+      onStart: function (options) {
+        var position = main.getRelativePosition({ left: 29, top: 495 });
+        main.sketch.addPoint(
+          { x: 269, y: 195 },
+          { x: 1.5, y: -4 }
+        );
+      }
+    });
+
+    pop.code({
+      start: 123, //
+      onStart: function (options) {
+        var position = main.getRelativePosition({ left: 171, top: 400 });
+        main.sketch.addPoint(
+          { x: 411, y: 210 },
+          { x: 2.5, y: -4 }
+        );
+      }
+    });
+
+    pop.code({
+      start: 123.2, //
+      onStart: function (options) {
+        var position = main.getRelativePosition({ left: 111, top: 548 });
+        main.sketch.addPoint(
+          { x: 351, y: 148 },
+          { x: 2, y: -4 }
         );
       }
     });
@@ -338,10 +371,21 @@ var script = {
     pop.code({
       start: 123.5, //
       onStart: function (options) {
-        var position = main.getRelativePosition({ left: 29, top: 495 });
+        var position = main.getRelativePosition({ left: -33, top: 500 });
         main.sketch.addPoint(
-          { x: position.left, y: position.top },
-          { x: 3, y: -8 }
+          { x: 207, y: 100 },
+          { x: -3, y: -4 }
+        );
+      }
+    });
+
+    pop.code({
+      start: 123.8, //
+      onStart: function (options) {
+        var position = main.getRelativePosition({ left: -167, top: 423 });
+        main.sketch.addPoint(
+          { x: 73, y: 123 },
+          { x: -3, y: -4 }
         );
       }
     });
@@ -349,54 +393,10 @@ var script = {
     pop.code({
       start: 124, //
       onStart: function (options) {
-        var position = main.getRelativePosition({ left: 171, top: 400 });
-        main.sketch.addPoint(
-          { x: position.left, y: position.top },
-          { x: 5, y: -8 }
-        );
-      }
-    });
-
-    pop.code({
-      start: 124.2, //
-      onStart: function (options) {
-        var position = main.getRelativePosition({ left: 111, top: 548 });
-        main.sketch.addPoint(
-          { x: position.left, y: position.top },
-          { x: 4, y: -8 }
-        );
-      }
-    });
-
-    pop.code({
-      start: 124.5, //
-      onStart: function (options) {
-        var position = main.getRelativePosition({ left: -33, top: 500 });
-        main.sketch.addPoint(
-          { x: position.left, y: position.top },
-          { x: -6, y: -8 }
-        );
-      }
-    });
-
-    pop.code({
-      start: 124.8, //
-      onStart: function (options) {
-        var position = main.getRelativePosition({ left: -167, top: 423 });
-        main.sketch.addPoint(
-          { x: position.left, y: position.top },
-          { x: -6, y: -8 }
-        );
-      }
-    });
-
-    pop.code({
-      start: 125, //
-      onStart: function (options) {
         var position = main.getRelativePosition({ left: -214, top: 504 });
         main.sketch.addPoint(
-          { x: position.left, y: position.top },
-          { x: -8, y: -8 }
+          { x: 26, y: 104 },
+          { x: -4, y: -4 }
         );
 
         main.sketch.stopDrawing();
@@ -404,34 +404,26 @@ var script = {
       }
     });
 
-    pop.code({
-      start: 125.5,
-      onStart: function (options) {
-        $("#sketchCanvas").removeClass("foreground");
-        main.sketch.enableMouse();
-      }
-    });
 
     pop.code({
-      start: 130,
+      start: 127,
       onStart: function (options) {
         console.log('disable mouse')
         main.sketch.disableMouse();
         main.sketch.stopDrawing();
-        $("#sketchCanvas").fadeOut(1000);
-      }
-    });
-
-    pop.code({
-      start: 131,
-      onStart: function (options) {
         main.sketch.remove();
-
         $("#sketchCanvas").stop();
         $("#sketchCanvas").css({ opacity: 1 });
         $("#sketchCanvas").show();
       }
     });
+
+    // pop.code({
+    //   start: 131,
+    //   onStart: function (options) {
+
+    //   }
+    // });
 
 
     //WEBGL
@@ -444,7 +436,7 @@ var script = {
     })
 
     pop.code({
-      start: 146,
+      start: 147,
       onStart: function (options) {
         main.sketch.remove();
       }
@@ -454,20 +446,16 @@ var script = {
     //accessibility
 
     pop.code({
-      start: 148,
+      start: 149,
       onStart: function (options) {
         main.sketch = new p5(accessibilitySketch, "sketchCanvas");
-      }
-    })
-
-    pop.code({
-      start: 152,
-      onStart: function (options) {
-        var position = main.getRelativePosition({ left: -240, top: 200 });
+        var position = main.getRelativePosition({ left: -800, top: 600 });
         var panel = main.sketch.showCode(position.left, position.top);
         panel.parent('sketchOverlay');
       }
-    });
+    })
+
+
 
     pop.code({
       start: 156,
@@ -480,74 +468,74 @@ var script = {
     //Outro
 
 
-    pop.code({
-      start: 255,
-      onStart: function (options) {
-        main.sketch = new p5(outroSketch, "sketchCanvas");
-      }
-    });
+    // pop.code({
+    //   start: 157,
+    //   onStart: function (options) {
+    //     main.sketch = new p5(outroSketch, "sketchCanvas");
+    //   }
+    // });
 
-    pop.code({
-      start: 256.37,
-      onStart: function (options) {
-        main.sketch.showOutro('<span class="fa-stack"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-scissors fa-stack-1x"></i></span>', 315, 248);
-      }
-    });
+    // pop.code({
+    //   start: 256.37,
+    //   onStart: function (options) {
+    //     main.sketch.showOutro('<span class="fa-stack"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-scissors fa-stack-1x"></i></span>', 315, 248);
+    //   }
+    // });
 
-    pop.code({
-      start: 256.9,
-      onStart: function (options) {
-        main.sketch.showOutro('<span class="fa-stack"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-lightbulb-o fa-stack-1x"></i></span>', 315, 248);
-      }
-    });
+    // pop.code({
+    //   start: 256.9,
+    //   onStart: function (options) {
+    //     main.sketch.showOutro('<span class="fa-stack"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-lightbulb-o fa-stack-1x"></i></span>', 315, 248);
+    //   }
+    // });
 
-    pop.code({
-      start: 257.60,
-      onStart: function (options) {
-        main.sketch.showOutro('<span class="fa-stack"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-laptop fa-stack-1x"></i></span>', 315, 248);
-      }
-    });
+    // pop.code({
+    //   start: 257.60,
+    //   onStart: function (options) {
+    //     main.sketch.showOutro('<span class="fa-stack"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-laptop fa-stack-1x"></i></span>', 315, 248);
+    //   }
+    // });
 
-    pop.code({
-      start: 258.56,
-      onStart: function (options) {
-        main.sketch.showOutro('<span class="fa-stack"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-pencil fa-stack-1x"></i></span>', 315, 248);
-      }
-    });
+    // pop.code({
+    //   start: 258.56,
+    //   onStart: function (options) {
+    //     main.sketch.showOutro('<span class="fa-stack"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-pencil fa-stack-1x"></i></span>', 315, 248);
+    //   }
+    // });
 
-    pop.code({
-      start: 259.10,
-      onStart: function (options) {
-        main.sketch.showOutro('<span class="fa-stack"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-graduation-cap fa-stack-1x"></i></span>', 315, 248);
-      }
-    });
+    // pop.code({
+    //   start: 259.10,
+    //   onStart: function (options) {
+    //     main.sketch.showOutro('<span class="fa-stack"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-graduation-cap fa-stack-1x"></i></span>', 315, 248);
+    //   }
+    // });
 
-    pop.code({
-      start: 259.50,
-      onStart: function (options) {
-        main.sketch.showOutro('<img class="outroImage fa-spin" src="/assets/thick-asterisk-alone.svg" alt="" />', 325, 280);
-      }
-    });
+    // pop.code({
+    //   start: 259.50,
+    //   onStart: function (options) {
+    //     main.sketch.showOutro('<img class="outroImage fa-spin" src="/assets/thick-asterisk-alone.svg" alt="" />', 325, 280);
+    //   }
+    // });
 
-    pop.code({
-      start: 261.7,
-      onStart: function (options) {
-        main.sketch.showOutro('<a class="outroText" href="mailto:hello@p5js.org">hello@p5js.org</a>', 270, 300);
+    // pop.code({
+    //   start: 261.7,
+    //   onStart: function (options) {
+    //     main.sketch.showOutro('<a class="outroText" href="mailto:hello@p5js.org">hello@p5js.org</a>', 270, 300);
 
-      }
-    });
+    //   }
+    // });
 
-    pop.code({
-      start: 266.123141,
-      onStart: function (options) {
-        main.sketch.remove();
-      }
-    });
+    // pop.code({
+    //   start: 266.123141,
+    //   onStart: function (options) {
+    //     main.sketch.remove();
+    //   }
+    // });
 
     // CTA
 
     pop.code({
-      start: 272,
+      start: 238.25,
       onStart: function (options) {
 
         $("#pause").hide();

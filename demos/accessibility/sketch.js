@@ -8,8 +8,8 @@ var accessibilitySketch = function (sketch) {
     sketch.codePanel = sketch.createDiv("");
     sketch.codePanel.addClass("codePanel");
     sketch.codePanel.hide();
-
-    sketch.createCanvas(100, 100);
+    sketch.mainCanvas = sketch.createCanvas(200, 200);
+    sketch.mainCanvas.addClass('windowFrame');
   }
 
   sketch.draw = function () {
@@ -18,14 +18,14 @@ var accessibilitySketch = function (sketch) {
     // Draw a heart.
     sketch.fill('red');
     sketch.noStroke();
-    sketch.circle(67, 67, 20);
-    sketch.circle(83, 67, 20);
-    sketch.triangle(91, 73, 75, 95, 59, 73);
+    sketch.circle(167, 167, 20);
+    sketch.circle(183, 167, 20);
+    sketch.triangle(191, 173, 175, 195, 159, 173);
 
   }
 
   sketch.showCode = function (x, y) {
-    let text = "describe('A pink square with a red heart in the bottom-right corner.')";
+    let text = "describe('A pink square with a red heart\n\nin the bottom-right corner.')";
     sketch.codePanel.html(text);
     sketch.codePanel.position(x, y);
     sketch.codePanel.show();
@@ -34,5 +34,18 @@ var accessibilitySketch = function (sketch) {
 
   sketch.hideCode = function () {
     sketch.codePanel.hide();
+  }
+
+  sketch.showLabel = function (text, x, y) {
+    sketch.labelSpan.html(text);
+    sketch.labelContainer.position(x - 350, y - 64);
+    sketch.labelContainer.show();
+    sketch.arrowCanvas.position(x - 110, y - 180);
+    sketch.arrowCanvas.show();
+  }
+
+  sketch.hideLabel = function () {
+    sketch.labelContainer.hide();
+    sketch.arrowCanvas.hide();
   }
 };

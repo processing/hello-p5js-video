@@ -9,22 +9,22 @@ var paintingSketch = function (sketch) {
   sketch.lfo = null;
 
   sketch.painting = false;
-  sketch.mouseEnabled = true;
+  sketch.mouseEnabled = false;
   sketch.next = 0;
   sketch.lastPosition = null;
+
 
   // Range of midi notes to select on path creation.
 
   sketch.notes = [60, 62, 64, 65, 67, 69, 71, 72, 74, 76];
-
-  //sketch.notes = [60,64,67,71,72,76,79,83];
 
   sketch.setup = function () {
 
     // Full-window canvas
     sketch._pixelDensity = 1;
     sketch.masterVolume(.5);
-    sketch.createCanvas(1280, 800);
+    sketch.mainCanvas = sketch.createCanvas(500, 500);
+    sketch.mainCanvas.addClass('windowFrame');
     //sketch.strokeWeight(2);
     sketch.colorMode(sketch.HSB, 100);
 
@@ -84,8 +84,10 @@ var paintingSketch = function (sketch) {
 
       // Grab mouse position
 
-      sketch.mousePosition.x = (sketch.mouseX > sketch.touchX) ? sketch.mouseX : sketch.touchX;
-      sketch.mousePosition.y = (sketch.mouseY > sketch.touchY) ? sketch.mouseY : sketch.touchY;
+      // sketch.mousePosition.x = (sketch.mouseX > sketch.touchX) ? sketch.mouseX : sketch.touchX;
+      // sketch.mousePosition.y = (sketch.mouseY > sketch.touchY) ? sketch.mouseY : sketch.touchY;
+      sketch.mousePosition.x = sketch.mouseX;
+      sketch.mousePosition.y = sketch.mouseY;
 
       sketch.mousePosition.x /= sketch.scaleFactor;
       sketch.mousePosition.y /= sketch.scaleFactor;
@@ -98,7 +100,7 @@ var paintingSketch = function (sketch) {
       sketch.paths[sketch.paths.length - 1].add(sketch.mousePosition, force);
 
       // Schedule next circle
-      sketch.next = sketch.millis() + sketch.random(100);
+      sketch.next = sketch.millis() + sketch.random(20);
 
       // Store mouse values
       sketch.lastPosition.x = sketch.mousePosition.x;
@@ -267,5 +269,4 @@ var paintingSketch = function (sketch) {
 
   return sketch;
 };
-
 

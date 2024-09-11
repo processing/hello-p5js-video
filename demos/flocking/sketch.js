@@ -7,12 +7,12 @@ var flockingSketch = function (sketch) {
     //new p5 video variables
     sketch.animateRandom = false;
     sketch.animateFlocking = false;
-    sketch.circleRadius = 30;
+    sketch.circleRadius = 20;
     sketch.circles = [];
 
-    sketch.colorMode(sketch.HSB, 100);
+    // sketch.colorMode(sketch.HSB, 100);
 
-    sketch.mainCanvas = sketch.createCanvas(500, 500);
+    sketch.mainCanvas = sketch.createCanvas(450, 450);
     sketch.mainCanvas.addClass("windowFrame");
 
     for (let y = sketch.circleRadius / 2; y < sketch.height; y += sketch.circleRadius * 2) {
@@ -44,6 +44,19 @@ var flockingSketch = function (sketch) {
     for (let i = 0; i < sketch.circles.length; i++) {
       sketch.circles[i].display();
     }
+  }
+
+  sketch.showLabel = function (text, x, y) {
+    sketch.labelSpan.html(text);
+    sketch.labelContainer.position(x - 350, y - 64);
+    sketch.labelContainer.show();
+    sketch.arrowCanvas.position(x - 110, y - 180);
+    sketch.arrowCanvas.show();
+  }
+
+  sketch.hideLabel = function () {
+    sketch.labelContainer.hide();
+    sketch.arrowCanvas.hide();
   }
 
   //toggles 
@@ -140,7 +153,9 @@ var flockingSketch = function (sketch) {
   }
 
   sketch.Circle.prototype.display = function () {
-    sketch.fill(100, 100, 100, 80);
+    sketch.fill('pink');
+    sketch.stroke(0, 20);
+    sketch.strokeWeight(2);
     sketch.ellipse(this.pos.x, this.pos.y, this.r, this.r);
   }
 
