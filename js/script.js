@@ -2,7 +2,7 @@ var script = {
   popcorn: null,
   init: function () {
 
-    var pop = Popcorn.smart("#videoClip", ["https://storage.cloud.google.com/hello-p5-bucket/p5-video-draft-2.webm", "https://storage.cloud.google.com/hello-p5-bucket/p5-video-draft-2.mp4"], { width: 1920, height: 1080 });
+    var pop = Popcorn.smart("#videoClip", ["https://storage.cloud.google.com/hello-p5-bucket/p5-video-draft-3.webm", "https://storage.cloud.google.com/hello-p5-bucket/p5-video-draft-3.mp4"], { width: 1920, height: 1080 });
     pop.autoplay(false);
 
     pop.on("canplayall", function (e) {
@@ -79,35 +79,35 @@ var script = {
     pop.code({
       start: 31.3,
       onStart: function (options) {
-        main.sketch.showExample("// CREATING ELEMENTS", 200, 325);
+        main.sketch.showExample("// MOUSE INTERACTION", 200, 325);
       }
     });
 
     pop.code({
       start: 31.6,
       onStart: function (options) {
-        main.sketch.showExample("// MOUSE INTERACTION", 200, 375);
+        main.sketch.showExample("// SIMPLE ANIMATIONS", 200, 375);
       }
     });
 
     pop.code({
       start: 31.9,
       onStart: function (options) {
-        main.sketch.showExample("// SIMPLE ANIMATIONS", 1250, 275);
+        main.sketch.showExample("// GENERATING SOUND", 1250, 275);
       }
     });
 
     pop.code({
       start: 32.2,
       onStart: function (options) {
-        main.sketch.showExample("// GENERATING SOUND", 1250, 325);
+        main.sketch.showExample("// 3D & WEBGL", 1250, 325);
       }
     });
 
     pop.code({
       start: 32.5,
       onStart: function (options) {
-        main.sketch.showExample("// 3D & WEBGL", 1250, 375);
+        main.sketch.showExample("// ACCESSIBILITY", 1250, 375);
       }
     });
 
@@ -120,24 +120,6 @@ var script = {
     });
 
 
-    // Shiffman
-
-    pop.code({
-      start: 40,
-      onStart: function (options) {
-
-        // var position = main.getRelativePosition({ left: -177.5, top: 540 });
-        // main.sketch.showLabel("Daniel Shiffman", position.left, position.top);
-      }
-    });
-
-    pop.code({
-      start: 43,
-      onStart: function (options) {
-        // main.sketch.hideLabel();
-      }
-    });
-
     pop.code({
       start: 44,
       onStart: function (options) {
@@ -146,7 +128,7 @@ var script = {
     });
 
 
-    // Circle Sketch
+    // Dan - Circle Sketch
 
     pop.code({
       start: 45.11,
@@ -216,25 +198,20 @@ var script = {
     });
 
 
-    //Tuan - flocking
+
     pop.code({
-      start: 82,
+      start: 82.5,
       onStart: function (options) {
         main.sketch.remove();
       }
     })
 
+    //Tuan - flocking
     pop.code({
       start: 87,
       onStart: function (options) {
         main.sketch = new p5(flockingSketch, "sketchCanvas");
         main.sketch.scaleFactor = main.scaleFactor;
-      }
-    });
-    pop.code({
-      start: 90,
-      onStart: function (options) {
-        main.sketch.hideLabel();
       }
     });
 
@@ -260,16 +237,8 @@ var script = {
     });
 
 
-    // pop.code({
-    //   start: 109,
-    //   onStart: function (options) {
-    //     $("#sketchCanvas").fadeOut(1000);
-    //   }
-    // });
-
-
     pop.code({
-      start: 108,
+      start: 108.5,
       onStart: function (options) {
         main.sketch.stopFlocking();
         main.sketch.remove();
@@ -279,11 +248,7 @@ var script = {
       }
     });
 
-    // pop.code({
-    //   start: 111.0,
-    //   onStart: function (options) {
-    //   }
-    // });
+
 
     // Rox - play song
 
@@ -358,7 +323,7 @@ var script = {
     });
 
     pop.code({
-      start: 123.2, //
+      start: 123.1, //
       onStart: function (options) {
         var position = main.getRelativePosition({ left: 111, top: 548 });
         main.sketch.addPoint(
@@ -369,7 +334,7 @@ var script = {
     });
 
     pop.code({
-      start: 123.5, //
+      start: 123.3, //
       onStart: function (options) {
         var position = main.getRelativePosition({ left: -33, top: 500 });
         main.sketch.addPoint(
@@ -380,7 +345,7 @@ var script = {
     });
 
     pop.code({
-      start: 123.8, //
+      start: 123.5, //
       onStart: function (options) {
         var position = main.getRelativePosition({ left: -167, top: 423 });
         main.sketch.addPoint(
@@ -391,7 +356,7 @@ var script = {
     });
 
     pop.code({
-      start: 124, //
+      start: 123, //
       onStart: function (options) {
         var position = main.getRelativePosition({ left: -214, top: 504 });
         main.sketch.addPoint(
@@ -406,7 +371,7 @@ var script = {
 
 
     pop.code({
-      start: 127,
+      start: 128,
       onStart: function (options) {
         console.log('disable mouse')
         main.sketch.disableMouse();
@@ -418,25 +383,18 @@ var script = {
       }
     });
 
-    // pop.code({
-    //   start: 131,
-    //   onStart: function (options) {
-
-    //   }
-    // });
-
 
     //WEBGL
 
     pop.code({
-      start: 135,
+      start: 133.5,
       onStart: function (options) {
         main.sketch = new p5(webglSketch, "sketchCanvas");
       }
     })
 
     pop.code({
-      start: 147,
+      start: 148,
       onStart: function (options) {
         main.sketch.remove();
       }
@@ -449,7 +407,7 @@ var script = {
       start: 149,
       onStart: function (options) {
         main.sketch = new p5(accessibilitySketch, "sketchCanvas");
-        var position = main.getRelativePosition({ left: -800, top: 600 });
+        var position = main.getRelativePosition({ left: -880, top: 700 });
         var panel = main.sketch.showCode(position.left, position.top);
         panel.parent('sketchOverlay');
       }
@@ -458,7 +416,7 @@ var script = {
 
 
     pop.code({
-      start: 156,
+      start: 159,
       onStart: function (options) {
         main.sketch.hideCode();
         main.sketch.remove();
@@ -535,7 +493,7 @@ var script = {
     // CTA
 
     pop.code({
-      start: 238.25,
+      start: 248,
       onStart: function (options) {
 
         $("#pause").hide();
@@ -552,7 +510,6 @@ var script = {
     });
 
     // Set external
-
     script.popcorn = pop;
 
   }

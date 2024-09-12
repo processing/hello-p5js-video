@@ -46,18 +46,6 @@ var flockingSketch = function (sketch) {
     }
   }
 
-  sketch.showLabel = function (text, x, y) {
-    sketch.labelSpan.html(text);
-    sketch.labelContainer.position(x - 350, y - 64);
-    sketch.labelContainer.show();
-    sketch.arrowCanvas.position(x - 110, y - 180);
-    sketch.arrowCanvas.show();
-  }
-
-  sketch.hideLabel = function () {
-    sketch.labelContainer.hide();
-    sketch.arrowCanvas.hide();
-  }
 
   //toggles 
 

@@ -121,13 +121,6 @@ h1, h2 {
   white-space:nowrap;
 }
 
-
-.codePanel:hover {
-    text-decoration: none;
-    background: rgba(255, 184, 0, .50);
-    border: 2px solid rgb(255, 184, 0);    
-  }
-
 /**
  * Sketch
  */
@@ -152,6 +145,20 @@ h1, h2 {
   position:absolute;
   top:100px;
   left:100px;
+  border:#F1678E solid;
+  border-top-width:30px;
+  border-right-width: 2px;
+  border-bottom-width: 2px;
+  border-left-width: 2px;
+  border-radius:10px;
+  background:white;
+  filter: drop-shadow(4px 6px 1px #ddd);
+}
+
+.paintingCanvas{
+  position:absolute;
+  top:100px;
+  right:100px;
   border:#F1678E solid;
   border-top-width:30px;
   border-right-width: 2px;

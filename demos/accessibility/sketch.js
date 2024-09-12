@@ -25,7 +25,7 @@ var accessibilitySketch = function (sketch) {
   }
 
   sketch.showCode = function (x, y) {
-    let text = "describe('A pink square with a red heart\n\nin the bottom-right corner.')";
+    let text = "describe('A pink square with a red heart <br /> \nin the bottom-right corner.')";
     sketch.codePanel.html(text);
     sketch.codePanel.position(x, y);
     sketch.codePanel.show();
@@ -36,16 +36,4 @@ var accessibilitySketch = function (sketch) {
     sketch.codePanel.hide();
   }
 
-  sketch.showLabel = function (text, x, y) {
-    sketch.labelSpan.html(text);
-    sketch.labelContainer.position(x - 350, y - 64);
-    sketch.labelContainer.show();
-    sketch.arrowCanvas.position(x - 110, y - 180);
-    sketch.arrowCanvas.show();
-  }
-
-  sketch.hideLabel = function () {
-    sketch.labelContainer.hide();
-    sketch.arrowCanvas.hide();
-  }
 };

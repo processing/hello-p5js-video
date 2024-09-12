@@ -24,7 +24,8 @@ var paintingSketch = function (sketch) {
     sketch._pixelDensity = 1;
     sketch.masterVolume(.5);
     sketch.mainCanvas = sketch.createCanvas(500, 500);
-    sketch.mainCanvas.addClass('windowFrame');
+    // sketch.mainCanvas.addClass('windowFrame');
+    sketch.mainCanvas.addClass('paintingCanvas');
     //sketch.strokeWeight(2);
     sketch.colorMode(sketch.HSB, 100);
 
