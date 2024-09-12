@@ -493,7 +493,7 @@ var script = {
     // CTA
 
     pop.code({
-      start: 248,
+      start: 246,
       onStart: function (options) {
 
         $("#pause").hide();
