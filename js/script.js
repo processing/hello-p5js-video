@@ -2,7 +2,7 @@ var script = {
   popcorn: null,
   init: function () {
 
-    var pop = Popcorn.smart("#videoClip", ["https://storage.cloud.google.com/hello-p5-bucket/p5-video-draft-3.webm", "https://storage.cloud.google.com/hello-p5-bucket/p5-video-draft-3.mp4"], { width: 1920, height: 1080 });
+    var pop = Popcorn.smart("#videoClip", ["/assets/p5-video-draft-4.webm", "/assets/p5-video-draft-4.mp4"], { width: 1920, height: 1080 });
     pop.autoplay(false);
 
     pop.on("canplayall", function (e) {
@@ -32,7 +32,6 @@ var script = {
     pop.code({
       start: 1,
       onStart: function (options) {
-
         var position = main.getRelativePosition({ left: -177.5, top: 463 });
         main.sketch = new p5(introSketch, "sketchCanvas");
         // main.sketch.showLabel("Qianqian Ye, p5.js Project Lead", position.left, position.top);
@@ -43,26 +42,46 @@ var script = {
       start: 6,
       onStart: function (options) {
         // main.sketch.hideLabel();
-        main.sketch.showLogo(288, 272);
+        main.sketch.showLogo(150, 272);
       }
     });
 
     pop.code({
       start: 8,
       onStart: function (options) {
-        main.sketch.hideLogo();
+
         var bullets = [
           "Learn to code",
           "Make art",
           "Free to Download",
           "Open Source"
         ]
-        main.sketch.showBullets(bullets, 150, 250);
+        main.sketch.showBullets(bullets, 150, 400);
       }
     });
 
     pop.code({
-      start: 14.946752,
+      start: 16,
+      onStart: function (options) {
+        main.sketch.hideLogo();
+        main.sketch.hideBullets();
+      }
+    });
+
+    pop.code({
+      start: 18.5,
+      onStart: function (options) {
+        var bullets = [
+          "Accessibility",
+          "Inclusivity",
+          "Community",
+          "Joy!"
+        ]
+        main.sketch.showBullets(bullets, 1450, 400);
+      }
+    });
+    pop.code({
+      start: 23.5,
       onStart: function (options) {
         main.sketch.hideBullets();
       }
@@ -384,7 +403,7 @@ var script = {
     });
 
 
-    //WEBGL
+    //Patt - WEBGL
 
     pop.code({
       start: 133.5,
@@ -401,7 +420,7 @@ var script = {
     })
 
 
-    //accessibility
+    //Myrah - accessibility
 
     pop.code({
       start: 149,
@@ -423,89 +442,15 @@ var script = {
       }
     })
 
-    //Outro
-
-
-    // pop.code({
-    //   start: 157,
-    //   onStart: function (options) {
-    //     main.sketch = new p5(outroSketch, "sketchCanvas");
-    //   }
-    // });
-
-    // pop.code({
-    //   start: 256.37,
-    //   onStart: function (options) {
-    //     main.sketch.showOutro('<span class="fa-stack"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-scissors fa-stack-1x"></i></span>', 315, 248);
-    //   }
-    // });
-
-    // pop.code({
-    //   start: 256.9,
-    //   onStart: function (options) {
-    //     main.sketch.showOutro('<span class="fa-stack"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-lightbulb-o fa-stack-1x"></i></span>', 315, 248);
-    //   }
-    // });
-
-    // pop.code({
-    //   start: 257.60,
-    //   onStart: function (options) {
-    //     main.sketch.showOutro('<span class="fa-stack"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-laptop fa-stack-1x"></i></span>', 315, 248);
-    //   }
-    // });
-
-    // pop.code({
-    //   start: 258.56,
-    //   onStart: function (options) {
-    //     main.sketch.showOutro('<span class="fa-stack"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-pencil fa-stack-1x"></i></span>', 315, 248);
-    //   }
-    // });
-
-    // pop.code({
-    //   start: 259.10,
-    //   onStart: function (options) {
-    //     main.sketch.showOutro('<span class="fa-stack"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-graduation-cap fa-stack-1x"></i></span>', 315, 248);
-    //   }
-    // });
-
-    // pop.code({
-    //   start: 259.50,
-    //   onStart: function (options) {
-    //     main.sketch.showOutro('<img class="outroImage fa-spin" src="/assets/thick-asterisk-alone.svg" alt="" />', 325, 280);
-    //   }
-    // });
-
-    // pop.code({
-    //   start: 261.7,
-    //   onStart: function (options) {
-    //     main.sketch.showOutro('<a class="outroText" href="mailto:hello@p5js.org">hello@p5js.org</a>', 270, 300);
-
-    //   }
-    // });
-
-    // pop.code({
-    //   start: 266.123141,
-    //   onStart: function (options) {
-    //     main.sketch.remove();
-    //   }
-    // });
 
     // CTA
-
     pop.code({
-      start: 246,
+      start: 242,
       onStart: function (options) {
-
+        console.log('end')
         $("#pause").hide();
-
-        $("#cta")
-          .css({ top: '-128px' })
-          .show()
-          .animate({ top: '50%' },
-            {
-              duration: 1300
-            }
-          );
+        $("#progressBar").hide();
+        $("#cta").show().animate({ opacity: '1' }, { duration: 1300 });
       }
     });
 

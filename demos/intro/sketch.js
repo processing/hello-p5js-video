@@ -19,7 +19,7 @@ var introSketch = function (sketch) {
 
     sketch.logo = sketch.createImg("/assets/p5js-rect.svg");
     sketch.logo.id('introLogo');
-    sketch.logo.size(100);
+    sketch.logo.size(200);
     sketch.logo.hide();
 
     sketch.bulletList = [];
@@ -42,10 +42,10 @@ var introSketch = function (sketch) {
       if (sketch.bulletTime < sketch.millis()) {
         var newBullet = sketch.bulletList.shift();
         var asteriskSvg = '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 28 28" enable-background="new 0 0 28 28" xml:space="preserve"><path fill="#ED225D" stroke="#ED225D" stroke-miterlimit="10" d="M16.909,10.259l8.533-2.576l1.676,5.156l-8.498,2.899l5.275,7.48l-4.447,3.225l-5.553-7.348L8.487,26.25l-4.318-3.289l5.275-7.223L0.88,12.647l1.678-5.16l8.598,2.771V1.364h5.754V10.259z"/></svg>'
-        var newBulletDiv = sketch.createDiv(asteriskSvg + '<span style="margin-left:20px"><span>' + newBullet);
+        var newBulletDiv = sketch.createDiv(asteriskSvg + '<span style="margin-left:20px" ><span>' + newBullet);
         newBulletDiv.parent("bullets");
 
-        sketch.bulletTime = sketch.millis() + 300;
+        sketch.bulletTime = sketch.millis() + 1100;
       }
     }
 
@@ -82,10 +82,15 @@ var introSketch = function (sketch) {
     sketch.bullets.position(x, y);
     sketch.bullets.show();
     sketch.bulletList = bullets;
+    console.log(sketch.bullets);
   }
 
   sketch.hideBullets = function () {
     sketch.bullets.hide();
+    //reset bullet list
+    sketch.bulletList = [];
+    sketch.bulletTime = 0;
+    sketch.bullets.elt.innerHTML = ""
   }
 
   sketch.showLabel = function (text, x, y) {

@@ -1,7 +1,7 @@
 var main = {
   sketch: null,
   scaleFactor: 1.0,
-  debug: false,
+  debug: true,
 
   // Initalize Demo
 
@@ -10,7 +10,6 @@ var main = {
     main.resize();
 
     // Popcorn Setup
-
     script.init();
 
     // Events
@@ -20,7 +19,7 @@ var main = {
         console.log(script.popcorn.currentTime());
         var clickX = e.pageX - ($(window).width() / 2)
         clickY = $(window).height() - e.pageY;
-        console.log("{left:" + clickX + ", top:" + clickY + "}");
+        console.log("{left:" + e.pageX + ", top:" + clickY + "}");
       });
     }
 
@@ -57,6 +56,15 @@ var main = {
         }
 
       });
+
+      // $("#progressBar").click(function (e) {
+      //   console.log(script.popcorn.currentTime());
+      //   let clickX = e.pageX;
+      //   let width = $(window).width();
+      //   let duration = script.popcorn.duration();
+      //   script.popcorn.currentTime(clickX / width * duration);
+      // });
+
     }
 
     // Buttons
@@ -72,6 +80,7 @@ var main = {
 
     $("#begin").click(function () {
       main.playVideo();
+      main.prepareProgressBar();
     });
     $("#begin").button('loading');
 
@@ -87,50 +96,128 @@ var main = {
 
     $("#welcome").fadeIn();
 
+    $("#section-intro").click(function () {
+      script.popcorn.currentTime(0);
+      if (main.sketch) {
+        main.sketch.remove();
+      }
+    });
+
+    $("#section-circle").click(function () {
+      script.popcorn.currentTime(39);
+      if (main.sketch) {
+        main.sketch.remove();
+      }
+    });
+
+    $("#section-animation").click(function () {
+      script.popcorn.currentTime(82.79);
+      if (main.sketch) {
+        main.sketch.remove();
+      }
+    });
+
+    $("#section-audio").click(function () {
+      script.popcorn.currentTime(108.6);
+      if (main.sketch) {
+        main.sketch.remove();
+      }
+    });
+
+    $("#section-webgl").click(function () {
+      script.popcorn.currentTime(127.62);
+      if (main.sketch) {
+        main.sketch.remove();
+      }
+    });
+
+    $("#section-accessibility").click(function () {
+      script.popcorn.currentTime(148.65);
+      if (main.sketch) {
+        main.sketch.remove();
+      }
+    });
+
+    $("#section-tutorial").click(function () {
+      script.popcorn.currentTime(159.23);
+      if (main.sketch) {
+        main.sketch.remove();
+      }
+    });
+
+    $("#section-contribute").click(function () {
+      script.popcorn.currentTime(179.93);
+      if (main.sketch) {
+        main.sketch.remove();
+      }
+    });
+
+    $("#section-outro").click(function () {
+      script.popcorn.currentTime(207.92);
+      if (main.sketch) {
+        main.sketch.remove();
+      }
+    });
+
   },
 
   prepareVideo: function () {
     //comment out seriously.js, since we are not using chroma key
     // Setup Seriously
-    // var seriously,
-    //   chroma, target;
+    var seriously, chroma, target;
 
-    // seriously = new Seriously();
+    seriously = new Seriously();
 
-    // target = seriously.target('#videoCanvas');
-    // chroma = seriously.effect('chroma');
+    target = seriously.target('#videoCanvas');
+    chroma = seriously.effect('chroma');
 
-    // if (Modernizr.video.webm && Modernizr.video.h264) {
-    //   //console.log("Chrome");
-    //   chroma.weight = .9;
-    //   chroma.balance = 1;
-    //   chroma.clipWhite = 1;
-    //   chroma.clipBlack = 0;
-    //   chroma.screen = [.2, 1, .1, 1];
-    // } else if (!Modernizr.video.webm && Modernizr.video.h264) {
-    //   //console.log("Safari");
-    //   chroma.weight = 1.25;
-    //   chroma.balance = 1;
-    //   chroma.clipWhite = 1;
-    //   chroma.clipBlack = 0;
-    //   chroma.screen = [.3, .9, .15, 1];
-    // } else if (Modernizr.video.webm && !Modernizr.video.h264) {
-    //   //console.log("Firefox");
-    //   chroma.weight = 1.05;
-    //   chroma.balance = 1;
-    //   chroma.clipWhite = 1;
-    //   chroma.clipBlack = 0;
-    //   chroma.screen = [.14, .95, 0, 1];
-    // }
-
-
-    // chroma.source = "#" + script.popcorn.media.id;
-    // target.source = chroma;
-    // seriously.go();
+    if (Modernizr.video.webm && Modernizr.video.h264) {
+      console.log("Chrome");
+      chroma.weight = 1;
+      chroma.balance = 1;
+      chroma.clipWhite = 1;
+      chroma.clipBlack = 0;
+      chroma.screen = [66 / 255, 255 / 255, 120 / 255, 1];
+    } else if (!Modernizr.video.webm && Modernizr.video.h264) {
+      console.log("Safari");
+      chroma.weight = 1.25;
+      chroma.balance = 1;
+      chroma.clipWhite = 1;
+      chroma.clipBlack = 0;
+      chroma.screen = [.3, .9, .15, 1];
+    } else if (Modernizr.video.webm && !Modernizr.video.h264) {
+      console.log("Firefox");
+      chroma.weight = 1.05;
+      chroma.balance = 1;
+      chroma.clipWhite = 1;
+      chroma.clipBlack = 0;
+      chroma.screen = [.14, .95, 0, 1];
+    }
+    chroma.source = "#" + script.popcorn.media.id;
+    target.width = 1920;
+    target.height = 1080;
+    target.source = chroma;
+    seriously.go();
 
     // Set button state
-
     $("#begin").button('reset');
+  },
+
+  prepareProgressBar: function () {
+    // Prepare progress bar
+    //allocate the positions for the section buttons across the progress bar
+    let width = $(window).width();
+    let duration = script.popcorn.duration();
+    //example: section-intro's popcorn time: 1 -> calculate left position base on the time
+    $("#section-intro").css({ "left": ((0.1 / duration) * width).toString() + "px" });
+    $("#section-circle").css({ "left": ((39 / duration) * width).toString() + "px" });
+    $("#section-animation").css({ "left": ((82.79 / duration) * width).toString() + "px" });
+    $("#section-audio").css({ "left": ((108.6 / duration) * width).toString() + "px" });
+    $("#section-webgl").css({ "left": ((127.62 / duration) * width).toString() + "px" });
+    $("#section-accessibility").css({ "left": ((148.65 / duration) * width).toString() + "px" });
+    $("#section-tutorial").css({ "left": ((159.23 / duration) * width).toString() + "px" });
+    $("#section-contribute").css({ "left": ((179.93 / duration) * width).toString() + "px" });
+    $("#section-outro").css({ "left": ((207.92 / duration) * width).toString() + "px" });
   },
 
   // Start Video
@@ -141,13 +228,15 @@ var main = {
     //console.log("Length " + script.popcorn.duration() + ".");
 
     $("#welcome").fadeOut();
-    $("#videoClip").fadeIn();
-    //$("#videoCanvas").fadeIn(); 
-    $("#p5").fadeIn();
+    // $("#videoClip").fadeIn();
+    $("#videoCanvas").fadeIn();
     $("#pause").fadeIn();
+    $("#progressBar").fadeIn();
+
 
     var time = main.getStartTime();
     script.popcorn.play(time);
+    this.prepareProgressBar();
 
   },
 
@@ -158,7 +247,6 @@ var main = {
       time = parseFloat(hash);
       console.log("Playing from " + time + ".");
     }
-
     return time;
 
   },
@@ -190,6 +278,8 @@ var main = {
     main.scaleFactor = ratio;
     if (main.sketch) main.sketch.scaleFactor = main.scaleFactor;
     $('#main').css('transform', transform);
+
+
   }
 
 }
