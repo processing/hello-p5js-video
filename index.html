@@ -97,49 +97,44 @@
 
         <div class="panelBody">
           <div>
-            <button
-              class="btn btn-primary"
-              target="_blank"
-              href="https://editor.p5js.org/"
-            >
-              <i class="fa fa-laptop fa-2x"></i>
-              <br />
-              <br />
-              Start Coding
-            </button>
+            <a target="_blank" href="https://editor.p5js.org/">
+              <button class="btn btn-primary">
+                <i class="fa fa-laptop fa-2x"></i>
+                <br />
+                <br />
+                Start Coding
+              </button>
+            </a>
 
-            <button
-              class="btn btn-primary"
-              target="_blank"
-              href="https://p5js.org/tutorials/"
-            >
-              <i class="fa fa-comment fa-2x"></i>
-              <br />
-              <br />
-              Tutorials
-            </button>
+            <a target="_blank" href="https://p5js.org/tutorials/">
+              <button class="btn btn-primary">
+                <i class="fa fa-comment fa-2x"></i>
+                <br />
+                <br />
+                Tutorials
+              </button>
+            </a>
 
-            <button
-              class="btn btn-primary"
-              target="_blank"
-              href="https://p5js.org/community/"
-            >
-              <i class="fa fa-magic fa-2x"></i>
-              <br />
-              <br />
-              Community
-            </button>
+            <a target="_blank" href="https://p5js.org/community/">
+              <button class="btn btn-primary">
+                <i class="fa fa-magic fa-2x"></i>
+                <br />
+                <br />
+                Community
+              </button>
+            </a>
 
-            <button
-              class="btn btn-primary"
+            <a
               target="_blank"
               href="https://github.com/processing/hello-p5js-video"
             >
-              <i class="fa fa-video-camera fa-2x"></i>
-              <br />
-              <br />
-              About this Video
-            </button>
+              <button class="btn btn-primary">
+                <i class="fa fa-video-camera fa-2x"></i>
+                <br />
+                <br />
+                About this Video
+              </button>
+            </a>
           </div>
         </div>
       </div>
@@ -175,8 +170,6 @@
 
   <script src="js/vendor/popcorn.min.js"></script>
 
-  <script src="js/vendor/seriously.js"></script>
-  <script src="js/vendor/effects/seriously.chroma.js"></script>
   <script src="js/vendor/modernizr.min.js"></script>
 
   <script src="js/script.js"></script>
@@ -193,12 +186,7 @@
 
   <script>
     $(document).ready(function () {
-      if (Seriously.incompatible()) {
-        $("#errorWebGL").show();
-        $("#errorFeature").hide();
-        $("#error").fadeIn();
-        $("#main").hide();
-      } else if (!Modernizr.webaudio || !Modernizr.csstransforms) {
+      if (!Modernizr.webaudio || !Modernizr.csstransforms) {
         $("#errorWebGL").hide();
         $("#errorFeature").show();
         $("#error").fadeIn();

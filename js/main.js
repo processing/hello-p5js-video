@@ -162,43 +162,6 @@ var main = {
   },
 
   prepareVideo: function () {
-    //comment out seriously.js, since we are not using chroma key
-    // Setup Seriously
-    // var seriously, chroma, target;
-
-    // seriously = new Seriously();
-
-    // target = seriously.target('#videoCanvas');
-    // chroma = seriously.effect('chroma');
-
-    // if (Modernizr.video.webm && Modernizr.video.h264) {
-    //   console.log("Chrome");
-    //   chroma.weight = 1;
-    //   chroma.balance = 1;
-    //   chroma.clipWhite = 1;
-    //   chroma.clipBlack = 0;
-    //   chroma.screen = [66 / 255, 255 / 255, 120 / 255, 1];
-    // } else if (!Modernizr.video.webm && Modernizr.video.h264) {
-    //   console.log("Safari");
-    //   chroma.weight = 1.25;
-    //   chroma.balance = 1;
-    //   chroma.clipWhite = 1;
-    //   chroma.clipBlack = 0;
-    //   chroma.screen = [.3, .9, .15, 1];
-    // } else if (Modernizr.video.webm && !Modernizr.video.h264) {
-    //   console.log("Firefox");
-    //   chroma.weight = 1.05;
-    //   chroma.balance = 1;
-    //   chroma.clipWhite = 1;
-    //   chroma.clipBlack = 0;
-    //   chroma.screen = [.14, .95, 0, 1];
-    // }
-    // chroma.source = "#" + script.popcorn.media.id;
-    // target.width = 1920;
-    // target.height = 1080;
-    // target.source = chroma;
-    // seriously.go();
-
     // Set button state
     $("#begin").button('reset');
   },
@@ -224,9 +187,6 @@ var main = {
   // Start Video
 
   playVideo: function () {
-
-    //console.log("Starting video.");
-    //console.log("Length " + script.popcorn.duration() + ".");
 
     $("#welcome").fadeOut();
     $("#videoClip").fadeIn();
