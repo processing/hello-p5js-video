@@ -144,14 +144,6 @@ h1, h2 {
   white-space:nowrap;
 }
 
-.codePanel {
-  padding: 12px;
-  font-size: 1.6em;
-  color: #ED225D !important;
-  position: absolute;
-  font-family: 'Inconsolata', monospace;
-  white-space:nowrap;
-}
 /**
  * Sketch
  */
@@ -373,6 +365,14 @@ h1, h2 {
   background: #ED225D;
   color: white;
   border: none;
+}
+
+.panelBody a{
+  text-decoration:none;
+  color:#9F0C37 !important;
+}
+.panelBody a:hover {
+  color:white !important;
 }
 
 #donateBox iframe{
