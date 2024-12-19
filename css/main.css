@@ -98,6 +98,7 @@ h1, h2 {
 #progressBar button:hover{
   background:rgba(70,70,70, 1);
 }
+
 #progressBar button div{
   display: none;
   text-align: left;
@@ -133,15 +134,24 @@ h1, h2 {
   color: #ED225D;
 }
 
-.codePanel {
-  padding: 16px;
-  font-size: 1.5em;
+.instructionPanel {
+  padding: 12px;
+  font-size: 1.6em;
+  background-color: white;
   color: #ED225D !important;
   position: absolute;
   font-family: 'Inconsolata', monospace;
   white-space:nowrap;
 }
 
+.codePanel {
+  padding: 12px;
+  font-size: 1.6em;
+  color: #ED225D !important;
+  position: absolute;
+  font-family: 'Inconsolata', monospace;
+  white-space:nowrap;
+}
 /**
  * Sketch
  */
@@ -167,10 +177,7 @@ h1, h2 {
   top:100px;
   left:100px;
   border:#F1678E solid;
-  border-top-width:30px;
-  border-right-width: 2px;
-  border-bottom-width: 2px;
-  border-left-width: 2px;
+  border-width: 3px;
   border-radius:10px;
   background:white;
   filter: drop-shadow(4px 6px 1px #ddd);
@@ -200,11 +207,11 @@ h1, h2 {
   display: none; 
   /* width:100%;
   height:auto; */
-  /* width: 1920px;
-  height: 1080px; */
+  width: 1920px;
+  height: 1080px;
 
   pointer-events: none;
-  /* z-index: -10; */
+  z-index: -10;
 }
 
 /*this is a canvas*/
@@ -216,6 +223,7 @@ h1, h2 {
   pointer-events: none;
   display:none;
   z-index: -10;
+  display: none;
 }
 
 #videoBackground{
@@ -264,7 +272,7 @@ h1, h2 {
 #welcome h1{
   font-size:5em;
   font-weight:700;
-  color: rgba(70, 70, 70, 0.5);
+  color: rgba(70, 70, 70, 1);
   letter-spacing: .03em;
   word-spacing:0.1em;
 }
@@ -275,8 +283,8 @@ h1, h2 {
   border-radius:30px;
   font-family: "National Park";
   font-size:1.5em;
-  color:rgba(70,70,70, 0.5);
-  border: 2px solid rgba(70,70,70, 0.5);
+  color:rgba(70,70,70, 1);
+  border: 2px solid rgba(70,70,70, 1);
   background:none;
 }
 
@@ -429,10 +437,10 @@ h1, h2 {
 
 #noteContainer {
   position: absolute;
-  top: 24px;
-  left: 0;
+  top: 480px;
+  left: 200px;
   width: 100%;
-  text-align:center;
+  /* text-align:center; */
 }
 
 .note {

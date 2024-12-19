@@ -7,12 +7,12 @@ var flockingSketch = function (sketch) {
     //new p5 video variables
     sketch.animateRandom = false;
     sketch.animateFlocking = false;
-    sketch.circleRadius = 20;
+    sketch.circleRadius = 30;
     sketch.circles = [];
 
     // sketch.colorMode(sketch.HSB, 100);
 
-    sketch.mainCanvas = sketch.createCanvas(450, 450);
+    sketch.mainCanvas = sketch.createCanvas(720, 720);
     sketch.mainCanvas.addClass("windowFrame");
 
     for (let y = sketch.circleRadius / 2; y < sketch.height; y += sketch.circleRadius * 2) {
@@ -21,6 +21,11 @@ var flockingSketch = function (sketch) {
         sketch.circles.push(c);
       }
     }
+
+    sketch.instructionPanel = sketch.createDiv("");
+    sketch.instructionPanel.addClass("instructionPanel");
+    sketch.instructionPanel.hide();
+
   }
 
   sketch.draw = function () {
@@ -64,6 +69,18 @@ var flockingSketch = function (sketch) {
     sketch.animateFlocking = false;
   }
 
+  //instructions
+  sketch.showInstruction = function (text, x, y) {
+    sketch.instructionPanel.html(text);
+    sketch.instructionPanel.position(x, y);
+    sketch.instructionPanel.show();
+
+    return sketch.instructionPanel;
+  }
+
+  sketch.hideInstruction = function () {
+    sketch.instructionPanel.hide();
+  }
 
   //Circle Class
 

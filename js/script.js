@@ -2,7 +2,7 @@ var script = {
   popcorn: null,
   init: function () {
 
-    var pop = Popcorn.smart("#videoClip", ["/assets/p5-video-draft-4.webm", "/assets/p5-video-draft-4.mp4"], { width: 1920, height: 1080 });
+    var pop = Popcorn.smart("#videoClip", ["/assets/p5-video-draft-5.webm", "/assets/p5-video-draft-5.mp4"], { width: 1940, height: 1080 });
     pop.autoplay(false);
 
     pop.on("canplayall", function (e) {
@@ -105,7 +105,7 @@ var script = {
     pop.code({
       start: 31.6,
       onStart: function (options) {
-        main.sketch.showExample("// SIMPLE ANIMATIONS", 200, 375);
+        main.sketch.showExample("// SIMPLE ANIMATION", 200, 375);
       }
     });
 
@@ -184,30 +184,19 @@ var script = {
       }
     });
 
-    // Show Code
-
-    // pop.code({
-    //   start: 57,
-    //   onStart: function (options) {
-    //     var position = main.getRelativePosition({ left: -840, top: 540 });
-    //     var panel = main.sketch.showCode("// ellipse(80, 80, 148, 148);", position.left, position.top);
-    //     panel.parent('sketchOverlay');
-    //   }
-    // });
-
-    // pop.code({
-    //   start: 67,
-    //   onStart: function (options) {
-    //     main.sketch.hideCode();
-    //   }
-    // });
-
+    //show instructions
     pop.code({
-      start: 68,
+      start: 67,
       onStart: function (options) {
+        var position = main.getRelativePosition({ left: -830, top: 940 });
+        var panel = main.sketch.showInstruction("(move + click mouse)", position.left, position.top);
+        panel.parent('sketchOverlay');
+
         main.sketch.animateFollow();
       }
-    })
+    });
+
+
 
     pop.code({
       start: 75,
@@ -217,17 +206,17 @@ var script = {
     });
 
 
-
     pop.code({
       start: 82.5,
       onStart: function (options) {
+        main.sketch.hideInstruction();
         main.sketch.remove();
       }
     })
 
     //Tuan - flocking
     pop.code({
-      start: 87,
+      start: 89.3,
       onStart: function (options) {
         main.sketch = new p5(flockingSketch, "sketchCanvas");
         main.sketch.scaleFactor = main.scaleFactor;
@@ -248,9 +237,15 @@ var script = {
       }
     });
 
+
+
     pop.code({
       start: 99.0,
       onStart: function (options) {
+        var position = main.getRelativePosition({ left: -830, top: 940 });
+        var panel = main.sketch.showInstruction("(move mouse)", position.left, position.top);
+        panel.parent('sketchOverlay');
+
         main.sketch.startFlocking();
       }
     });
@@ -305,6 +300,10 @@ var script = {
           { x: 1, y: 149 },
           { x: -1.5, y: -4 }
         );
+
+        var position = main.getRelativePosition({ left: -830, top: 940 });
+        var panel = main.sketch.showInstruction("(click + drag mouse)", position.left, position.top);
+        panel.parent('sketchOverlay');
       }
     });
 
@@ -390,9 +389,9 @@ var script = {
 
 
     pop.code({
-      start: 128,
+      start: 127.6,
       onStart: function (options) {
-        console.log('disable mouse')
+        main.sketch.hideInstruction();
         main.sketch.disableMouse();
         main.sketch.stopDrawing();
         main.sketch.remove();
@@ -409,12 +408,17 @@ var script = {
       start: 133.5,
       onStart: function (options) {
         main.sketch = new p5(webglSketch, "sketchCanvas");
+
+        var position = main.getRelativePosition({ left: -830, top: 940 });
+        var panel = main.sketch.showInstruction("(scroll + drag mouse)", position.left, position.top);
+        panel.parent('sketchOverlay');
       }
     })
 
     pop.code({
       start: 148,
       onStart: function (options) {
+        main.sketch.hideInstruction();
         main.sketch.remove();
       }
     })
@@ -426,8 +430,8 @@ var script = {
       start: 149,
       onStart: function (options) {
         main.sketch = new p5(accessibilitySketch, "sketchCanvas");
-        var position = main.getRelativePosition({ left: -880, top: 700 });
-        var panel = main.sketch.showCode(position.left, position.top);
+        var position = main.getRelativePosition({ left: -830, top: 940 });
+        var panel = main.sketch.showInstruction("// describe('pink square with a red heart <br /> \nin the bottom-right corner.')", position.left, position.top);
         panel.parent('sketchOverlay');
       }
     })
@@ -437,7 +441,7 @@ var script = {
     pop.code({
       start: 159,
       onStart: function (options) {
-        main.sketch.hideCode();
+        main.sketch.hideInstruction();
         main.sketch.remove();
       }
     })
@@ -445,12 +449,12 @@ var script = {
 
     // CTA
     pop.code({
-      start: 242,
+      start: 240.2,
       onStart: function (options) {
         console.log('end')
         $("#pause").hide();
         $("#progressBar").hide();
-        $("#cta").show().animate({ opacity: '1' }, { duration: 1300 });
+        $("#cta").show().animate({ opacity: '1' }, { duration: 500 });
       }
     });
 

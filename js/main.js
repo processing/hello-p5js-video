@@ -1,7 +1,7 @@
 var main = {
   sketch: null,
   scaleFactor: 1.0,
-  debug: true,
+  debug: false,
 
   // Initalize Demo
 
@@ -57,13 +57,13 @@ var main = {
 
       });
 
-      // $("#progressBar").click(function (e) {
-      //   console.log(script.popcorn.currentTime());
-      //   let clickX = e.pageX;
-      //   let width = $(window).width();
-      //   let duration = script.popcorn.duration();
-      //   script.popcorn.currentTime(clickX / width * duration);
-      // });
+      $("#progressBar").click(function (e) {
+        console.log(script.popcorn.currentTime());
+        let clickX = e.pageX;
+        let width = $(window).width();
+        let duration = script.popcorn.duration();
+        script.popcorn.currentTime(clickX / width * duration);
+      });
 
     }
 
@@ -153,7 +153,7 @@ var main = {
     });
 
     $("#section-outro").click(function () {
-      script.popcorn.currentTime(207.92);
+      script.popcorn.currentTime(206.5);
       if (main.sketch) {
         main.sketch.remove();
       }
@@ -164,40 +164,40 @@ var main = {
   prepareVideo: function () {
     //comment out seriously.js, since we are not using chroma key
     // Setup Seriously
-    var seriously, chroma, target;
+    // var seriously, chroma, target;
 
-    seriously = new Seriously();
+    // seriously = new Seriously();
 
-    target = seriously.target('#videoCanvas');
-    chroma = seriously.effect('chroma');
+    // target = seriously.target('#videoCanvas');
+    // chroma = seriously.effect('chroma');
 
-    if (Modernizr.video.webm && Modernizr.video.h264) {
-      console.log("Chrome");
-      chroma.weight = 1;
-      chroma.balance = 1;
-      chroma.clipWhite = 1;
-      chroma.clipBlack = 0;
-      chroma.screen = [66 / 255, 255 / 255, 120 / 255, 1];
-    } else if (!Modernizr.video.webm && Modernizr.video.h264) {
-      console.log("Safari");
-      chroma.weight = 1.25;
-      chroma.balance = 1;
-      chroma.clipWhite = 1;
-      chroma.clipBlack = 0;
-      chroma.screen = [.3, .9, .15, 1];
-    } else if (Modernizr.video.webm && !Modernizr.video.h264) {
-      console.log("Firefox");
-      chroma.weight = 1.05;
-      chroma.balance = 1;
-      chroma.clipWhite = 1;
-      chroma.clipBlack = 0;
-      chroma.screen = [.14, .95, 0, 1];
-    }
-    chroma.source = "#" + script.popcorn.media.id;
-    target.width = 1920;
-    target.height = 1080;
-    target.source = chroma;
-    seriously.go();
+    // if (Modernizr.video.webm && Modernizr.video.h264) {
+    //   console.log("Chrome");
+    //   chroma.weight = 1;
+    //   chroma.balance = 1;
+    //   chroma.clipWhite = 1;
+    //   chroma.clipBlack = 0;
+    //   chroma.screen = [66 / 255, 255 / 255, 120 / 255, 1];
+    // } else if (!Modernizr.video.webm && Modernizr.video.h264) {
+    //   console.log("Safari");
+    //   chroma.weight = 1.25;
+    //   chroma.balance = 1;
+    //   chroma.clipWhite = 1;
+    //   chroma.clipBlack = 0;
+    //   chroma.screen = [.3, .9, .15, 1];
+    // } else if (Modernizr.video.webm && !Modernizr.video.h264) {
+    //   console.log("Firefox");
+    //   chroma.weight = 1.05;
+    //   chroma.balance = 1;
+    //   chroma.clipWhite = 1;
+    //   chroma.clipBlack = 0;
+    //   chroma.screen = [.14, .95, 0, 1];
+    // }
+    // chroma.source = "#" + script.popcorn.media.id;
+    // target.width = 1920;
+    // target.height = 1080;
+    // target.source = chroma;
+    // seriously.go();
 
     // Set button state
     $("#begin").button('reset');
@@ -206,7 +206,8 @@ var main = {
   prepareProgressBar: function () {
     // Prepare progress bar
     //allocate the positions for the section buttons across the progress bar
-    let width = $(window).width();
+    // let width = $(window).width();
+    let width = 1920;
     let duration = script.popcorn.duration();
     //example: section-intro's popcorn time: 1 -> calculate left position base on the time
     $("#section-intro").css({ "left": ((0.1 / duration) * width).toString() + "px" });
@@ -217,7 +218,7 @@ var main = {
     $("#section-accessibility").css({ "left": ((148.65 / duration) * width).toString() + "px" });
     $("#section-tutorial").css({ "left": ((159.23 / duration) * width).toString() + "px" });
     $("#section-contribute").css({ "left": ((179.93 / duration) * width).toString() + "px" });
-    $("#section-outro").css({ "left": ((207.92 / duration) * width).toString() + "px" });
+    $("#section-outro").css({ "left": ((206.5 / duration) * width).toString() + "px" });
   },
 
   // Start Video
@@ -228,8 +229,8 @@ var main = {
     //console.log("Length " + script.popcorn.duration() + ".");
 
     $("#welcome").fadeOut();
-    // $("#videoClip").fadeIn();
-    $("#videoCanvas").fadeIn();
+    $("#videoClip").fadeIn();
+    // $("#videoCanvas").fadeIn();
     $("#pause").fadeIn();
     $("#progressBar").fadeIn();
 
