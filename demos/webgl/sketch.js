@@ -9,9 +9,13 @@ var webglSketch = function (sketch) {
     sketch.num = 10;
     sketch.colorMode(sketch.HSB, 100);
 
-    sketch.mainCanvas = sketch.createCanvas(500, 500, sketch.WEBGL);
+    sketch.mainCanvas = sketch.createCanvas(720, 720, sketch.WEBGL);
     sketch.mainCanvas.addClass("windowFrame");
-    sketch.angleMode(sketch.DEGREES)
+    sketch.angleMode(sketch.DEGREES);
+
+    sketch.instructionPanel = sketch.createDiv("");
+    sketch.instructionPanel.addClass("instructionPanel");
+    sketch.instructionPanel.hide();
 
   }
 
@@ -52,21 +56,17 @@ var webglSketch = function (sketch) {
 
   }
 
-  sketch.showLabel = function (text, x, y) {
-    sketch.labelSpan.html(text);
-    sketch.labelContainer.position(x - 350, y - 64);
-    sketch.labelContainer.show();
-    sketch.arrowCanvas.position(x - 110, y - 180);
-    sketch.arrowCanvas.show();
+  //instructions
+  sketch.showInstruction = function (text, x, y) {
+    sketch.instructionPanel.html(text);
+    sketch.instructionPanel.position(x, y);
+    sketch.instructionPanel.show();
+
+    return sketch.instructionPanel;
   }
 
-  sketch.hideLabel = function () {
-    sketch.labelContainer.hide();
-    sketch.arrowCanvas.hide();
+  sketch.hideInstruction = function () {
+    sketch.instructionPanel.hide();
   }
-
-
-
-
 
 };

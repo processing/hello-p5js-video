@@ -3,7 +3,7 @@ var circleSketch = function (sketch) {
   sketch.setup = function () {
     sketch._pixelDensity = 1;
 
-    sketch.mainCanvas = sketch.createCanvas(360, 360);
+    sketch.mainCanvas = sketch.createCanvas(720, 720);
     sketch.mainCanvas.addClass("windowFrame");
 
     sketch.colorMode(sketch.HSB, 100);
@@ -11,7 +11,7 @@ var circleSketch = function (sketch) {
     sketch.mode = "circle";
 
 
-    sketch.circleRadius = 148;
+    sketch.circleRadius = 300;
     sketch.circleStrokeWeight = 2;
     sketch.circleX = sketch.width / 2;
     sketch.circleY = sketch.height / 2;
@@ -23,9 +23,9 @@ var circleSketch = function (sketch) {
     sketch.following = false;
     sketch.painting = false;
 
-    sketch.codePanel = sketch.createDiv("");
-    sketch.codePanel.addClass("codePanel");
-    sketch.codePanel.hide();
+    sketch.instructionPanel = sketch.createDiv("");
+    sketch.instructionPanel.addClass("instructionPanel");
+    sketch.instructionPanel.hide();
 
     sketch.mainCanvas.mousePressed(
       function () {
@@ -58,7 +58,7 @@ var circleSketch = function (sketch) {
         sketch.rect(sketch.circleX, sketch.circleY, sketch.circleRadius, sketch.circleRadius);
         break;
       case "triangle":
-        var r = 74;
+        var r = 180;
         var c = {
           x: 0,
           y: -r
@@ -80,7 +80,7 @@ var circleSketch = function (sketch) {
         sketch.translate(sketch.width / 2, sketch.width / 2);
 
         for (var i = 0; i < 10; i++) {
-          sketch.ellipse(0, 30, 20, 80);
+          sketch.ellipse(0, 30, 40, 225);
           sketch.rotate(Math.PI / 5);
         }
 
@@ -102,6 +102,8 @@ var circleSketch = function (sketch) {
     sketch.labelContainer.show();
     sketch.arrowCanvas.position(x - 110, y - 180);
     sketch.arrowCanvas.show();
+
+    return sketch.labelContainer;
   }
 
   sketch.hideLabel = function () {
@@ -110,16 +112,16 @@ var circleSketch = function (sketch) {
   }
 
 
-  sketch.showCode = function (text, x, y) {
-    sketch.codePanel.html(text);
-    sketch.codePanel.position(x, y);
-    sketch.codePanel.show();
+  sketch.showInstruction = function (text, x, y) {
+    sketch.instructionPanel.html(text);
+    sketch.instructionPanel.position(x, y);
+    sketch.instructionPanel.show();
 
-    return sketch.codePanel;
+    return sketch.instructionPanel;
   }
 
-  sketch.hideCode = function () {
-    sketch.codePanel.hide();
+  sketch.hideInstruction = function () {
+    sketch.instructionPanel.hide();
   }
 
 

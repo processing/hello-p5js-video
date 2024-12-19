@@ -23,9 +23,9 @@ var paintingSketch = function (sketch) {
     // Full-window canvas
     sketch._pixelDensity = 1;
     sketch.masterVolume(.5);
-    sketch.mainCanvas = sketch.createCanvas(500, 500);
-    // sketch.mainCanvas.addClass('windowFrame');
-    sketch.mainCanvas.addClass('paintingCanvas');
+    sketch.mainCanvas = sketch.createCanvas(720, 720);
+    sketch.mainCanvas.addClass('windowFrame');
+    // sketch.mainCanvas.addClass('paintingCanvas');
     //sketch.strokeWeight(2);
     sketch.colorMode(sketch.HSB, 100);
 
@@ -58,6 +58,10 @@ var paintingSketch = function (sketch) {
 
     sketch.osc.start();
     sketch.lfo.start();
+
+    sketch.instructionPanel = sketch.createDiv("");
+    sketch.instructionPanel.addClass("instructionPanel");
+    sketch.instructionPanel.hide();
 
   };
 
@@ -182,6 +186,19 @@ var paintingSketch = function (sketch) {
     sketch.painting = false;
     sketch.osc.fade(0, .4);
     sketch.lfo.fade(0, .4);
+  }
+
+  //instructions
+  sketch.showInstruction = function (text, x, y) {
+    sketch.instructionPanel.html(text);
+    sketch.instructionPanel.position(x, y);
+    sketch.instructionPanel.show();
+
+    return sketch.instructionPanel;
+  }
+
+  sketch.hideInstruction = function () {
+    sketch.instructionPanel.hide();
   }
 
   // Class to handle paths of circles

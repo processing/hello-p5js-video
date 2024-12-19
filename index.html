@@ -1,5 +1,6 @@
 <head>
   <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css" />
 </head>
 
 <body>
@@ -44,21 +45,33 @@
     <div id="progressBar">
       <div id="gutter"></div>
       <div id="progress"></div>
+      <button id="section-intro"><div>Intro</div></button>
+      <button id="section-circle"><div>Drawing Circles</div></button>
+      <button id="section-animation"><div>Animation</div></button>
+      <button id="section-audio"><div>Audio</div></button>
+      <button id="section-webgl"><div>WebGL</div></button>
+      <button id="section-accessibility"><div>Accessibility</div></button>
+      <button id="section-tutorial">
+        <div>Tutorials & Documentation</div>
+      </button>
+      <button id="section-contribute"><div>Contribute</div></button>
+      <button id="section-outro"><div>Outro</div></button>
     </div>
 
-    <div id="p5">
-      <a href="http://p5js.org/" target="_blank">
-        <img src="assets/p5-sq-reverse.svg" width="48" height="48" />
-      </a>
-    </div>
-
-    <div id="pause"><i id="pauseButton" class="fa fa-pause">pause</i></div>
+    <div id="pause"><i id="pauseButton" class="fa fa-pause"></i></div>
 
     <div id="welcome">
-      <img src="assets/p5-sq-reverse.svg" width="128" height="128" />
-      <br />
-      <br />
-
+      <img id="background-image" src="assets/grid.png" />
+      <h1>
+        Hello,
+        <img
+          src="assets/p5-logo-no-background.svg"
+          style="display: inline; vertical-align: middle"
+          width="150"
+          height="150"
+        />
+        !
+      </h1>
       <button
         id="begin"
         class="btn btn-default"
@@ -69,78 +82,81 @@
     </div>
 
     <div id="videoClip"></div>
+    <div id="videoBackground"></div>
     <div id="sketchCanvas"></div>
     <div id="sketchOverlay"></div>
-    <canvas id="videoCanvas" width="960" height="720"></canvas>
+    <canvas id="videoCanvas"></canvas>
 
     <div id="cta">
-      <div class="panelHeader">
-        <h2>Thanks for Watching</h2>
-        <span>Use the links below to find out more about p5.js.</span>
-      </div>
-
-      <div class="panelBody">
-        <div>
-          <a
-            class="btn btn-primary"
-            target="_blank"
-            href="http://p5js.org/download/"
-          >
-            <i class="fa fa-download fa-2x"></i>
-            <br />
-            Download p5.js
-          </a>
-
-          <a
-            class="btn btn-primary"
-            target="_blank"
-            href="http://p5js.org/get-started/"
-          >
-            <i class="fa fa-mortar-board fa-2x"></i>
-            <br />
-            Get Started
-          </a>
-
-          <a
-            class="btn btn-primary"
-            target="_blank"
-            href="https://github.com/processing/p5.js/wiki/Processing-transition"
-          >
-            <i class="fa fa-laptop fa-2x"></i>
-            <br />
-            Transition Guide
-          </a>
-
-          <a
-            class="btn btn-primary"
-            target="_blank"
-            href="http://p5js.org/contribute"
-          >
-            <i class="fa fa-comment fa-2x"></i>
-            <br />
-            Contribute
-          </a>
-
-          <a
-            class="btn btn-primary"
-            target="_blank"
-            href="http://p5js.org/examples/#demos"
-          >
-            <i class="fa fa-magic fa-2x"></i>
-            <br />
-            View Examples
-          </a>
-
-          <a
-            class="btn btn-primary"
-            target="_blank"
-            href="http://github.com/scottgarner/p5.js-video/#hello-p5"
-          >
-            <i class="fa fa-video-camera fa-2x"></i>
-            <br />
-            About this Video
-          </a>
+      <img src="assets/cta-background.png" />
+      <div class="panelContainer">
+        <div class="panelHeader">
+          <h2>Thanks for Watching</h2>
+          <h3>Use the links below to find out more about p5.js.</h3>
         </div>
+
+        <div class="panelBody">
+          <div>
+            <button
+              class="btn btn-primary"
+              target="_blank"
+              href="https://editor.p5js.org/"
+            >
+              <i class="fa fa-laptop fa-2x"></i>
+              <br />
+              <br />
+              Start Coding
+            </button>
+
+            <button
+              class="btn btn-primary"
+              target="_blank"
+              href="https://p5js.org/tutorials/"
+            >
+              <i class="fa fa-comment fa-2x"></i>
+              <br />
+              <br />
+              Tutorials
+            </button>
+
+            <button
+              class="btn btn-primary"
+              target="_blank"
+              href="https://p5js.org/community/"
+            >
+              <i class="fa fa-magic fa-2x"></i>
+              <br />
+              <br />
+              Community
+            </button>
+
+            <button
+              class="btn btn-primary"
+              target="_blank"
+              href="https://github.com/processing/hello-p5js-video"
+            >
+              <i class="fa fa-video-camera fa-2x"></i>
+              <br />
+              <br />
+              About this Video
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="donateBox">
+        <script
+          src="https://donorbox.org/widget.js"
+          paypalExpress="true"
+        ></script>
+        <iframe
+          src="https://donorbox.org/embed/support-the-processing-foundation?language=en-us"
+          name="donorbox"
+          allowpaymentrequest="allowpaymentrequest"
+          seamless="seamless"
+          frameborder="0"
+          scrolling="no"
+          allow="payment"
+        ></iframe>
       </div>
     </div>
   </div>
