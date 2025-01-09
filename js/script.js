@@ -25,6 +25,15 @@ var script = {
       $("#progress").css('width', width);
     });
 
+    /* Prevent picture-in-picture which breaks playthrough on mobile */
+    
+    var videoElement = document.querySelector("#videoClip video");
+    if (videoElement) {
+      videoElement.setAttribute("playsinline", ""); // iOS and Android
+      videoElement.setAttribute("disablePictureInPicture", ""); // Android
+      videoElement.setAttribute("webkit-playsinline", ""); // iOS
+    }
+
     /* Script */
 
     // Q intro
