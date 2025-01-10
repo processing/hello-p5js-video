@@ -2,7 +2,7 @@ var script = {
   popcorn: null,
   init: function () {
 
-    var pop = Popcorn.smart("#videoClip", ["https://hello-assets.p5js.org/p5-video-draft-5.webm", "https://hello-assets.p5js.org/p5-video-draft-5-sm.mp4"], { width: 1940, height: 1080 });
+    var pop = Popcorn.smart("#videoClip", ["https://hello-assets.p5js.org/p5-video-draft-5-sm.mp4", "https://hello-assets.p5js.org/p5-video-draft-5.webm"], { width: 1940, height: 1080 });
     pop.autoplay(false);
 
     pop.on("canplayall", function (e) {
