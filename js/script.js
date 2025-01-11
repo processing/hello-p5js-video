@@ -2,12 +2,15 @@ var script = {
   popcorn: null,
   init: function () {
 
-    var pop = Popcorn.smart("#videoClip", ["https://hello-assets.p5js.org/p5-video-draft-5-sm.mp4", "https://hello-assets.p5js.org/p5-video-draft-5.webm"], { width: 1940, height: 1080 });
+
+    var pop = Popcorn.smart("#videoClip", ["https://hello-assets.p5js.org/p5-video-draft-5-sm.webm"], { width: 1940, height: 1080 });
     pop.autoplay(false);
 
     pop.on("canplayall", function (e) {
-      main.prepareVideo();
-    });
+      setTimeout(function() {
+        main.prepareVideo();  // This will execute after a 10-second delay
+      }, 4000); 
+      });
 
     pop.on("play", function (e) {
       $("#pauseButton").addClass("fa-pause");
@@ -40,6 +43,7 @@ var script = {
 
     pop.code({
       start: 1,
+      end: 3.9,
       onStart: function (options) {
         var position = main.getRelativePosition({ left: -177.5, top: 463 });
         main.sketch = new p5(introSketch, "sketchCanvas");
@@ -48,7 +52,8 @@ var script = {
     });
 
     pop.code({
-      start: 6,
+      start: 4,
+      end: 7.5,
       onStart: function (options) {
         // main.sketch.hideLabel();
         main.sketch.showLogo(150, 272);
@@ -57,8 +62,8 @@ var script = {
 
     pop.code({
       start: 8,
+      end: 15,
       onStart: function (options) {
-
         var bullets = [
           "Learn to code",
           "Make art",
@@ -71,14 +76,17 @@ var script = {
 
     pop.code({
       start: 16,
+      end: 18,
       onStart: function (options) {
         main.sketch.hideLogo();
         main.sketch.hideBullets();
+
       }
     });
 
     pop.code({
       start: 18.5,
+      end: 20,
       onStart: function (options) {
         var bullets = [
           "Accessibility",
@@ -91,6 +99,7 @@ var script = {
     });
     pop.code({
       start: 23.5,
+      end: 27,
       onStart: function (options) {
         main.sketch.hideBullets();
       }
@@ -99,6 +108,7 @@ var script = {
 
     pop.code({
       start: 31,
+      end: 31.25,
       onStart: function (options) {
         main.sketch.showExample("// DRAWING SHAPES", 200, 275);
       }
@@ -106,6 +116,7 @@ var script = {
 
     pop.code({
       start: 31.3,
+      end: 31.55,
       onStart: function (options) {
         main.sketch.showExample("// MOUSE INTERACTION", 200, 325);
       }
@@ -113,6 +124,7 @@ var script = {
 
     pop.code({
       start: 31.6,
+      end: 31.85,
       onStart: function (options) {
         main.sketch.showExample("// SIMPLE ANIMATION", 200, 375);
       }
@@ -120,20 +132,23 @@ var script = {
 
     pop.code({
       start: 31.9,
+      end: 32.25,
       onStart: function (options) {
         main.sketch.showExample("// GENERATING SOUND", 1250, 275);
       }
     });
 
     pop.code({
-      start: 32.2,
+      start: 32.3,
+      end: 32.55,
       onStart: function (options) {
         main.sketch.showExample("// 3D & WEBGL", 1250, 325);
       }
     });
 
     pop.code({
-      start: 32.5,
+      start: 32.6,
+      end: 32.9,
       onStart: function (options) {
         main.sketch.showExample("// ACCESSIBILITY", 1250, 375);
       }
@@ -141,15 +156,16 @@ var script = {
 
     pop.code({
       start: 38.5,
+      end: 38.8,
       onStart: function (options) {
         main.sketch.hideExamples();
-
       }
     });
 
 
     pop.code({
-      start: 44,
+      start: 43,
+      end: 45.1,
       onStart: function (options) {
         main.sketch.remove();
       }
@@ -160,6 +176,7 @@ var script = {
 
     pop.code({
       start: 45.11,
+      end: 49.1,
       onStart: function (options) {
         main.sketch = new p5(circleSketch, "sketchCanvas");
       }
@@ -167,6 +184,7 @@ var script = {
 
     pop.code({
       start: 49.15,
+      end: 49,
       onStart: function (options) {
         main.sketch.mode = "triangle";
       }
@@ -174,6 +192,7 @@ var script = {
 
     pop.code({
       start: 50.18,
+      end: 52,
       onStart: function (options) {
         main.sketch.mode = "square";
       }
@@ -181,6 +200,7 @@ var script = {
 
     pop.code({
       start: 52.23,
+      end: 56,
       onStart: function (options) {
         main.sketch.mode = "flower";
       }
@@ -188,6 +208,7 @@ var script = {
 
     pop.code({
       start: 56,
+      end: 56.4,
       onStart: function (options) {
         main.sketch.mode = "circle";
       }
@@ -196,6 +217,7 @@ var script = {
     //show instructions
     pop.code({
       start: 67,
+      end: 70,
       onStart: function (options) {
         var position = main.getRelativePosition({ left: -830, top: 940 });
         var panel = main.sketch.showInstruction("(move + click mouse)", position.left, position.top);
@@ -209,6 +231,7 @@ var script = {
 
     pop.code({
       start: 75,
+      end: 82,
       onStart: function (options) {
         main.sketch.animatePaint();
       }
@@ -217,6 +240,7 @@ var script = {
 
     pop.code({
       start: 82.5,
+      end: 89,
       onStart: function (options) {
         main.sketch.hideInstruction();
         main.sketch.remove();
@@ -226,6 +250,7 @@ var script = {
     //Tuan - flocking
     pop.code({
       start: 89.3,
+      end: 94,
       onStart: function (options) {
         main.sketch = new p5(flockingSketch, "sketchCanvas");
         main.sketch.scaleFactor = main.scaleFactor;
@@ -234,13 +259,15 @@ var script = {
 
     pop.code({
       start: 95,
+      end: 98,
       onStart: function (options) {
         main.sketch.startRandomWalk();
       }
     });
 
     pop.code({
-      start: 98.9,
+      start: 98.1,
+      end: 99.9,
       onStart: function (options) {
         main.sketch.stopRandomWalk();
       }
@@ -250,6 +277,7 @@ var script = {
 
     pop.code({
       start: 99.0,
+      end: 105,
       onStart: function (options) {
         var position = main.getRelativePosition({ left: -830, top: 940 });
         var panel = main.sketch.showInstruction("(move mouse)", position.left, position.top);
@@ -262,6 +290,7 @@ var script = {
 
     pop.code({
       start: 108.5,
+      end: 113,
       onStart: function (options) {
         main.sketch.stopFlocking();
         main.sketch.remove();
@@ -277,6 +306,7 @@ var script = {
 
     pop.code({
       start: 115.0,
+      end: 119,
       onStart: function (options) {
         main.sketch = new p5(songSketch, "sketchCanvas");
       }
@@ -284,6 +314,7 @@ var script = {
 
     pop.code({
       start: 120.0,
+      end: 121.9,
       onStart: function (options) {
         main.sketch.remove();
       }
@@ -293,15 +324,11 @@ var script = {
 
     pop.code({
       start: 122.0,
+      end: 122.29,
       onStart: function (options) {
         main.sketch = new p5(paintingSketch, "sketchCanvas");
         main.sketch.scaleFactor = main.scaleFactor;
-      }
-    });
 
-    pop.code({
-      start: 122.1, //
-      onStart: function (options) {
         main.sketch.startDrawing();
 
         var position = main.getRelativePosition({ left: -239, top: 449 });
@@ -317,7 +344,8 @@ var script = {
     });
 
     pop.code({
-      start: 122.3, //
+      start: 122.3,
+      end: 122.49,
       onStart: function (options) {
         var position = main.getRelativePosition({ left: -56, top: 585 });
         main.sketch.addPoint(
@@ -328,7 +356,8 @@ var script = {
     });
 
     pop.code({
-      start: 122.5, //
+      start: 122.5,
+      end: 122.95,
       onStart: function (options) {
         var position = main.getRelativePosition({ left: 29, top: 495 });
         main.sketch.addPoint(
@@ -339,7 +368,8 @@ var script = {
     });
 
     pop.code({
-      start: 123, //
+      start: 123,
+      end: 123.09,
       onStart: function (options) {
         var position = main.getRelativePosition({ left: 171, top: 400 });
         main.sketch.addPoint(
@@ -350,7 +380,8 @@ var script = {
     });
 
     pop.code({
-      start: 123.1, //
+      start: 123.1,
+      end: 123.29,
       onStart: function (options) {
         var position = main.getRelativePosition({ left: 111, top: 548 });
         main.sketch.addPoint(
@@ -361,7 +392,8 @@ var script = {
     });
 
     pop.code({
-      start: 123.3, //
+      start: 123.3,
+      end: 124,
       onStart: function (options) {
         var position = main.getRelativePosition({ left: -33, top: 500 });
         main.sketch.addPoint(
@@ -372,7 +404,8 @@ var script = {
     });
 
     pop.code({
-      start: 123.5, //
+      start: 124.1, //
+      end: 125,
       onStart: function (options) {
         var position = main.getRelativePosition({ left: -167, top: 423 });
         main.sketch.addPoint(
@@ -383,7 +416,8 @@ var script = {
     });
 
     pop.code({
-      start: 123, //
+      start: 125.1, //
+      end:127.5,
       onStart: function (options) {
         var position = main.getRelativePosition({ left: -214, top: 504 });
         main.sketch.addPoint(
@@ -399,6 +433,7 @@ var script = {
 
     pop.code({
       start: 127.6,
+      end: 130,
       onStart: function (options) {
         main.sketch.hideInstruction();
         main.sketch.disableMouse();
@@ -415,6 +450,7 @@ var script = {
 
     pop.code({
       start: 133.5,
+      end: 140,
       onStart: function (options) {
         main.sketch = new p5(webglSketch, "sketchCanvas");
 
@@ -425,7 +461,8 @@ var script = {
     })
 
     pop.code({
-      start: 148,
+      start: 147.5,
+      end: 149,
       onStart: function (options) {
         main.sketch.hideInstruction();
         main.sketch.remove();
@@ -436,7 +473,8 @@ var script = {
     //Myrah - accessibility
 
     pop.code({
-      start: 149,
+      start: 149.1,
+      end: 155,
       onStart: function (options) {
         main.sketch = new p5(accessibilitySketch, "sketchCanvas");
         var position = main.getRelativePosition({ left: -830, top: 940 });
@@ -449,6 +487,7 @@ var script = {
 
     pop.code({
       start: 159,
+      end: 180,
       onStart: function (options) {
         main.sketch.hideInstruction();
         main.sketch.remove();
@@ -459,8 +498,8 @@ var script = {
     // CTA
     pop.code({
       start: 240.2,
+      end: 250,
       onStart: function (options) {
-        console.log('end')
         $("#pause").hide();
         $("#progressBar").hide();
         $("#cta").show().animate({ opacity: '1' }, { duration: 500 });

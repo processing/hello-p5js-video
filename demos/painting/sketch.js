@@ -131,7 +131,6 @@ var paintingSketch = function (sketch) {
   // Mouse/Touch events
   sketch.mousePressed = function () {
     if (sketch.mouseEnabled) {
-      console.log("touch");
       sketch.startDrawing();
     }
   }

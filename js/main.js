@@ -6,6 +6,7 @@ var main = {
   // Initalize Demo
 
   init: function () {
+    //console.log("A");
 
     main.resize();
 
@@ -16,10 +17,10 @@ var main = {
 
     if (main.debug) {
       $(document).click(function (e) {
-        console.log(script.popcorn.currentTime());
+        //console.log(script.popcorn.currentTime());
         var clickX = e.pageX - ($(window).width() / 2)
         clickY = $(window).height() - e.pageY;
-        console.log("{left:" + e.pageX + ", top:" + clickY + "}");
+        //console.log("{left:" + e.pageX + ", top:" + clickY + "}");
       });
     }
 
@@ -46,19 +47,19 @@ var main = {
         if (keypress == ".") {
           if (!script.popcorn.paused()) script.popcorn.pause();
           script.popcorn.currentTime(script.popcorn.currentTime() + (1.0 / 30.0));
-          console.log(script.popcorn.currentTime());
+          //console.log(script.popcorn.currentTime());
         }
 
         if (keypress == ",") {
           if (!script.popcorn.paused()) script.popcorn.pause();
           script.popcorn.currentTime(script.popcorn.currentTime() - (1.0 / 30.0));
-          console.log(script.popcorn.currentTime());
+          //console.log(script.popcorn.currentTime());
         }
 
       });
 
       $("#progressBar").click(function (e) {
-        console.log(script.popcorn.currentTime());
+        //console.log(script.popcorn.currentTime());
         let clickX = e.pageX;
         let width = $(window).width();
         let duration = script.popcorn.duration();
@@ -71,7 +72,6 @@ var main = {
 
     $("#pause").click(function () {
       if (script.popcorn.paused()) {
-        console.log("Play");
         script.popcorn.play();
       } else {
         script.popcorn.pause();
@@ -82,6 +82,7 @@ var main = {
       main.playVideo();
       main.prepareProgressBar();
     });
+
     $("#begin").button('loading');
 
     // Pause on click
@@ -206,7 +207,7 @@ var main = {
     var hash = top.location.hash.replace('#', ''), time = 0;
     if (hash.length > 0) {
       time = parseFloat(hash);
-      console.log("Playing from " + time + ".");
+      //console.log("Playing from " + time + ".");
     }
     return time;
 

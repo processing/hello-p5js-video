@@ -1,6 +1,7 @@
 var introSketch = function (sketch) {
 
   sketch.setup = function () {
+
     sketch._pixelDensity = 1;
 
     sketch.arrowCanvas = sketch.createGraphics(100, 100);
@@ -82,7 +83,6 @@ var introSketch = function (sketch) {
     sketch.bullets.position(x, y);
     sketch.bullets.show();
     sketch.bulletList = bullets;
-    console.log(sketch.bullets);
   }
 
   sketch.hideBullets = function () {
@@ -118,6 +118,11 @@ var introSketch = function (sketch) {
   }
 
   sketch.hideExamples = function () {
+    //document.getElementById("console").innerText = "A";
+
     sketch.exampleDiv.hide();
+
+    //document.getElementById("console").innerText = "B";
+
   }
 };

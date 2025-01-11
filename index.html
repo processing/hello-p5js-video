@@ -4,9 +4,10 @@
 </head>
 
 <body>
+  <div id="logger"></div>
   <div id="preloader">
-    <div class="fontLoadA">SUP</div>
-    <div class="fontLoadB">SUP</div>
+    <div class="fontLoadA"></div>
+    <div class="fontLoadB"></div>
     <img src="assets/thick-asterisk-alone.svg" alt="" />
     <img src="assets/p5js-rect.svg" alt="" />
   </div>
@@ -61,7 +62,7 @@
     <div id="pause"><i id="pauseButton" class="fa fa-pause"></i></div>
 
     <div id="welcome">
-      <img id="background-image" src="assets/grid.png" />
+      <img id="background-image" src="assets/grid.jpg" />
       <h1>
         Hello,
         <img
@@ -191,6 +192,11 @@
         $("#error").fadeIn();
         $("#main").hide();
       } else {
+
+        document.body.addEventListener('touchmove', function(event) {
+          event.preventDefault();  // Suppress touch scroll so that "dragging" works on mobile
+        }, { passive: false });
+
         main.init();
       }
     });
