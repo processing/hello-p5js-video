@@ -52,7 +52,7 @@ var script = {
     });
 
     pop.code({
-      start: 4,
+      start: 3.5,
       end: 7.5,
       onStart: function (options) {
         // main.sketch.hideLabel();
@@ -108,7 +108,7 @@ var script = {
 
     pop.code({
       start: 31,
-      end: 31.25,
+      end: 35,
       onStart: function (options) {
         main.sketch.showExample("// DRAWING SHAPES", 200, 275);
       }
@@ -116,7 +116,7 @@ var script = {
 
     pop.code({
       start: 31.3,
-      end: 31.55,
+      end: 35,
       onStart: function (options) {
         main.sketch.showExample("// MOUSE INTERACTION", 200, 325);
       }
@@ -124,7 +124,7 @@ var script = {
 
     pop.code({
       start: 31.6,
-      end: 31.85,
+      end: 35,
       onStart: function (options) {
         main.sketch.showExample("// SIMPLE ANIMATION", 200, 375);
       }
@@ -132,7 +132,7 @@ var script = {
 
     pop.code({
       start: 31.9,
-      end: 32.25,
+      end: 37,
       onStart: function (options) {
         main.sketch.showExample("// GENERATING SOUND", 1250, 275);
       }
@@ -140,7 +140,7 @@ var script = {
 
     pop.code({
       start: 32.3,
-      end: 32.55,
+      end: 37,
       onStart: function (options) {
         main.sketch.showExample("// 3D & WEBGL", 1250, 325);
       }
@@ -148,7 +148,7 @@ var script = {
 
     pop.code({
       start: 32.6,
-      end: 32.9,
+      end: 37,
       onStart: function (options) {
         main.sketch.showExample("// ACCESSIBILITY", 1250, 375);
       }
@@ -156,7 +156,7 @@ var script = {
 
     pop.code({
       start: 38.5,
-      end: 38.8,
+      end: 42,
       onStart: function (options) {
         main.sketch.hideExamples();
       }
@@ -324,7 +324,7 @@ var script = {
 
     pop.code({
       start: 122.0,
-      end: 122.29,
+      end: 125,
       onStart: function (options) {
         main.sketch = new p5(paintingSketch, "sketchCanvas");
         main.sketch.scaleFactor = main.scaleFactor;
@@ -345,7 +345,7 @@ var script = {
 
     pop.code({
       start: 122.3,
-      end: 122.49,
+      end: 125,
       onStart: function (options) {
         var position = main.getRelativePosition({ left: -56, top: 585 });
         main.sketch.addPoint(
@@ -357,7 +357,7 @@ var script = {
 
     pop.code({
       start: 122.5,
-      end: 122.95,
+      end: 125,
       onStart: function (options) {
         var position = main.getRelativePosition({ left: 29, top: 495 });
         main.sketch.addPoint(
@@ -369,7 +369,7 @@ var script = {
 
     pop.code({
       start: 123,
-      end: 123.09,
+      end: 125,
       onStart: function (options) {
         var position = main.getRelativePosition({ left: 171, top: 400 });
         main.sketch.addPoint(
@@ -381,7 +381,7 @@ var script = {
 
     pop.code({
       start: 123.1,
-      end: 123.29,
+      end: 125,
       onStart: function (options) {
         var position = main.getRelativePosition({ left: 111, top: 548 });
         main.sketch.addPoint(
@@ -393,7 +393,7 @@ var script = {
 
     pop.code({
       start: 123.3,
-      end: 124,
+      end: 125,
       onStart: function (options) {
         var position = main.getRelativePosition({ left: -33, top: 500 });
         main.sketch.addPoint(
@@ -432,7 +432,7 @@ var script = {
 
 
     pop.code({
-      start: 127.6,
+      start: 128,
       end: 130,
       onStart: function (options) {
         main.sketch.hideInstruction();

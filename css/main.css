@@ -323,7 +323,7 @@ h1, h2 {
 }
 
 .panelContainer{
-  width:40vw;
+  width:50%;
   top:50%;
   transform:translateY(-50%);
   left:2vw;
@@ -365,17 +365,42 @@ h1, h2 {
   color:white !important;
 }
 
-#donateBox iframe{
+#donateBox{
   position:fixed;
   right:0px;
-  top:50%;
-  transform: translateY(-50%);
-  width:100%;
-  max-width: 600px;
+  bottom:150px;
+  width:50%;
+  max-width: 700px;
   min-width: 250px;
-  max-height: none !important;
+  color:#9F0C37;
+  padding-right: 50px;
+  font-size:2em;
 }
 
+#donateButton{
+  border-radius: 30px;
+  margin: auto;
+  border: 2px solid #9F0C37;
+  padding: 16px;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #9F0C37;
+  margin-bottom: 4px;
+  font-family: "National Park";
+  font-size: 2em;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  cursor:pointer;
+}
+#donateButton strong{
+  font-weight: bold;
+}
+
+#donateButton:hover{
+  background: #ED225D;
+  color: white;
+  border: 2px solid #fff;
+}
 /** 
  * Weather Demo
  */
@@ -530,3 +555,13 @@ h1, h2 {
   color: #F1678E;  
 }
 
+.section-marker::before, #pauseButton::after{
+  content: "";
+  position: absolute;
+  top: -50px;
+  bottom: -50px;
+  left: -50px;
+  right: -50px;
+  z-index: 500;
+  cursor: pointer;
+}
