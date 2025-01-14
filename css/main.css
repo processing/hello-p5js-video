@@ -49,7 +49,7 @@ h1, h2 {
 }
 
 #main {
-  overflow:hidden;
+  overflow:none;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -307,7 +307,9 @@ h1, h2 {
 #cta {
   width: 100%;
   height:100%;
-  top: 0;
+  z-index:2000;
+  top:0;
+  position:absolute;
   left: 0;
   margin-left: 0;
   margin-top: 0;
@@ -324,15 +326,14 @@ h1, h2 {
 
 .panelContainer{
   width:50%;
-  top:50%;
-  transform:translateY(-50%);
-  left:2vw;
+  top:200px;
+  left:50px;
   position:absolute
 }
 .panelHeader {
   color: #9F0C37;
   padding: 16px;
-  font-size:1.6em;
+  font-size:2em;
 }
 .panelBody {
   padding: 32px 16px;
@@ -341,6 +342,7 @@ h1, h2 {
 .panelBody .btn {
   width: 150px;
   height:150px;
+  cursor: pointer;
   border-radius: 30px;
   border:2px solid #9F0C37;
   background-color: rgba(255,255,255,0.5);
@@ -366,14 +368,14 @@ h1, h2 {
 }
 
 #donateBox{
-  position:fixed;
-  right:0px;
-  bottom:150px;
+  position:absolute;
+  padding: 16px;
+  top:200px;
   width:50%;
   max-width: 700px;
   min-width: 250px;
   color:#9F0C37;
-  padding-right: 50px;
+  right:50px;
   font-size:2em;
 }
 
@@ -563,5 +565,7 @@ h1, h2 {
   left: -50px;
   right: -50px;
   z-index: 500;
+}
+#pauseButton{
   cursor: pointer;
 }

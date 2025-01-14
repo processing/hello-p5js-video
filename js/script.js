@@ -26,6 +26,17 @@ var script = {
       var position = pop.currentTime() / pop.duration();
       var width = position * $("#main").width();
       $("#progress").css('width', width);
+      if (position > 1 && position > 0.988){
+        $("#pause").css({ 'display': 'none' });
+        $("#progressBar").css({ 'display': 'none' });
+        $("#videoClip").css({ 'display': 'none' });
+        $("#videoCanvas").css({ 'display': 'none' });
+        $("#cta").css({ 'display': 'block' });
+        $("#cta").animate({ 'opacity': 1 }, { duration: 500 });
+
+        //$("#cta").css({ 'display': 'block' });
+        //$("#cta").animate({ 'opacity': 1 }, { duration: 500 });
+      }
     });
 
     /* Prevent picture-in-picture which breaks playthrough on mobile */
@@ -40,7 +51,6 @@ var script = {
     /* Script */
 
     // Q intro
-
     pop.code({
       start: 1,
       end: 3.9,
@@ -158,7 +168,9 @@ var script = {
       start: 38.5,
       end: 42,
       onStart: function (options) {
-        main.sketch.hideExamples();
+        try{
+          main.sketch.hideExamples();
+        } catch { }
       }
     });
 
@@ -167,7 +179,10 @@ var script = {
       start: 43,
       end: 45.1,
       onStart: function (options) {
-        main.sketch.remove();
+        try {
+          main.sketch.hideInstruction();
+          main.sketch.remove();
+        } catch { }
       }
     });
 
@@ -242,8 +257,10 @@ var script = {
       start: 82.5,
       end: 89,
       onStart: function (options) {
-        main.sketch.hideInstruction();
-        main.sketch.remove();
+        try {
+          main.sketch.hideInstruction();
+          main.sketch.remove();
+        } catch { }
       }
     })
 
@@ -292,8 +309,10 @@ var script = {
       start: 108.5,
       end: 113,
       onStart: function (options) {
-        main.sketch.stopFlocking();
-        main.sketch.remove();
+        try {
+          main.sketch.stopFlocking();
+          main.sketch.remove();
+        } catch { }
         $("#sketchCanvas").stop();
         $("#sketchCanvas").css({ opacity: 1 });
         $("#sketchCanvas").show();
@@ -435,10 +454,12 @@ var script = {
       start: 128,
       end: 130,
       onStart: function (options) {
-        main.sketch.hideInstruction();
-        main.sketch.disableMouse();
-        main.sketch.stopDrawing();
-        main.sketch.remove();
+        try {
+          main.sketch.hideInstruction();
+          main.sketch.disableMouse();
+          main.sketch.stopDrawing();
+          main.sketch.remove();
+        } catch { }
         $("#sketchCanvas").stop();
         $("#sketchCanvas").css({ opacity: 1 });
         $("#sketchCanvas").show();
@@ -453,7 +474,6 @@ var script = {
       end: 140,
       onStart: function (options) {
         main.sketch = new p5(webglSketch, "sketchCanvas");
-
         var position = main.getRelativePosition({ left: -830, top: 940 });
         var panel = main.sketch.showInstruction("(scroll + drag mouse)", position.left, position.top);
         panel.parent('sketchOverlay');
@@ -464,8 +484,10 @@ var script = {
       start: 147.5,
       end: 149,
       onStart: function (options) {
-        main.sketch.hideInstruction();
-        main.sketch.remove();
+        if (main.sketch) {
+          main.sketch.hideInstruction();
+          main.sketch.remove();
+        }
       }
     })
 
@@ -489,20 +511,25 @@ var script = {
       start: 159,
       end: 180,
       onStart: function (options) {
-        main.sketch.hideInstruction();
-        main.sketch.remove();
+        try {
+          main.sketch.hideInstruction();
+          main.sketch.remove();
+        } catch { }
       }
     })
 
 
     // CTA
     pop.code({
-      start: 240.2,
+      start: 238,
       end: 250,
       onStart: function (options) {
-        $("#pause").hide();
-        $("#progressBar").hide();
-        $("#cta").show().animate({ opacity: '1' }, { duration: 500 });
+        $("#cta").css({ 'display': 'block' });
+        $("#cta").animate({ 'opacity': 1 }, { 'duration': 500 });
+        $("#pause").css({ 'display': 'none' });
+        $("#progressBar").css({ 'display': 'none' });
+        $("#videoClip").css({ 'display': 'none' });
+        $("#videoCanvas").css({ 'display': 'none' });
       }
     });
 

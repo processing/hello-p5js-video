@@ -59,6 +59,7 @@ var main = {
       });
 
       $("#progressBar").click(function (e) {
+        // This has been disabled 
         //console.log(script.popcorn.currentTime());
         let clickX = e.pageX;
         let width = $(window).width();
