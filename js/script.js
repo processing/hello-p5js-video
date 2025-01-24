@@ -26,17 +26,6 @@ var script = {
       var position = pop.currentTime() / pop.duration();
       var width = position * $("#main").width();
       $("#progress").css('width', width);
-      if (position > 1 && position > 0.988){
-        $("#pause").css({ 'display': 'none' });
-        $("#progressBar").css({ 'display': 'none' });
-        $("#videoClip").css({ 'display': 'none' });
-        $("#videoCanvas").css({ 'display': 'none' });
-        $("#cta").css({ 'display': 'block' });
-        $("#cta").animate({ 'opacity': 1 }, { duration: 500 });
-
-        //$("#cta").css({ 'display': 'block' });
-        //$("#cta").animate({ 'opacity': 1 }, { duration: 500 });
-      }
     });
 
     /* Prevent picture-in-picture which breaks playthrough on mobile */
@@ -521,8 +510,8 @@ var script = {
 
     // CTA
     pop.code({
-      start: 238,
-      end: 250,
+      start: 240,
+      end: 265,
       onStart: function (options) {
         $("#cta").css({ 'display': 'block' });
         $("#cta").animate({ 'opacity': 1 }, { 'duration': 500 });
