@@ -16,4 +16,4 @@ With gratitude to the many people who worked on this interactive video:
 * Myrah Sarwar IG/@myrahsarwar
 * Jules Kris IG/@soup.prince
 
-<img width="1125" alt="image" src="https://github.com/user-attachments/assets/c09debad-d647-4ad6-abda-52066ea1d0c8" />
+<img width="1390" alt="Screenshot 2025-01-24 at 11 58 53" src="https://github.com/user-attachments/assets/e322d9bf-430f-4a64-bcac-315017731386" />
